@@ -1,0 +1,544 @@
+import { getCategoryBySlug } from "./categories";
+import type { Product } from "./types";
+
+export const products: Product[] = [
+  {
+    slug: "enjektor-atici-tabanca",
+    name: "Enjektör Atıcı Tabanca",
+    categorySlug: "aticilar",
+    shortDescription:
+      "Kartuş kapsül basıncıyla çalışan, %70 sessiz enjektör atıcı tabanca.",
+    description:
+      "Kartuş içerisine koyulan kapsülün patlama basıncı ile çalışır. %70 oranında sessiz çalışır.\n\nPlastik alaşımlı özel el kundağı sayesinde hafif ve ergonomik bir tutuş ve hakimiyet sağlar. Güçlendirilmiş çelik namlu ve çelik alaşımlı gövdeye sahiptir.\n\nTamamen kendi üretimimizdir. Koruyucu kılıf ve bakım seti ile gönderilir.",
+    image: "/images/products/aticilar/enjektor-atici-tabanca.png",
+    gallery: [
+      "/images/products/aticilar/enjektor-atici-tabanca-kit.png",
+      "/images/products/aticilar/enjektor-atici-tabanca-enjektor.png",
+    ],
+    imageContain: true,
+    featured: true,
+    specs: [
+      { label: "Çalışma", value: "Kartuş kapsül patlama basıncı" },
+      { label: "Ses", value: "%70 sessiz" },
+      { label: "Namlu uzunluğu", value: "25 cm" },
+      { label: "Ağırlık", value: "1.5 kg" },
+      { label: "Atış mesafesi", value: "20 – 25 metre" },
+      { label: "Gönderim", value: "Koruyucu kılıf ve bakım seti" },
+      { label: "Üretim", value: "Vetelsan" },
+    ],
+  },
+  {
+    slug: "enjektor-atici-tufek",
+    name: "Enjektör Atıcı Tüfek",
+    categorySlug: "aticilar",
+    shortDescription:
+      "Uzun çelik namlulu, 25–30 m menzilli fünyeli enjektör atıcı tüfek.",
+    description:
+      "Kartuş içerisine koyulan kapsülün patlama basıncı ile çalışır. %70 oranında sessiz çalışır.\n\nPlastik alaşımlı dipçik sayesinde konforlu ve ergonomik bir tutuş ve hakimiyet sağlar. Güçlendirilmiş uzun çelik namlu ve çelik alaşımlı gövdeye sahiptir; bu sayede daha uzun menzilli atışlar için idealdir.\n\nTamamen kendi üretimimizdir. Koruyucu kılıf ve bakım seti ile gönderilir.",
+    image: "/images/products/aticilar/enjektor-atici-tufek.png",
+    gallery: [
+      "/images/products/aticilar/enjektor-atici-tufek-acik.png",
+      "/images/products/aticilar/enjektor-atici-tufek-kit.png",
+      "/images/products/aticilar/enjektor-atici-tufek-enjektor.png",
+    ],
+    imageContain: true,
+    featured: true,
+    specs: [
+      { label: "Çalışma", value: "Kartuş kapsül patlama basıncı" },
+      { label: "Ses", value: "%70 sessiz" },
+      { label: "Namlu uzunluğu", value: "50 cm" },
+      { label: "Ağırlık", value: "2.3 kg" },
+      { label: "Atış mesafesi", value: "25 – 30 metre" },
+      { label: "Gönderim", value: "Koruyucu kılıf ve bakım seti" },
+      { label: "Üretim", value: "Vetelsan" },
+    ],
+  },
+  {
+    slug: "ufleme-borusu",
+    name: "Üfleme Borusu",
+    categorySlug: "aticilar",
+    shortDescription:
+      "Tamamen sessiz, alüminyum gövdeli üfleme basınçlı atıcı.",
+    description:
+      "Üfleme basıncı ile çalışır. Plastik ağızlıktan kullanan kişinin üflemesiyle atış yapılır. Tamamen sessiz ve güvenlidir.\n\nAlüminyum gövde ve galvaniz giydirme sayesinde oldukça hafiftir. Kullanılan enjektör, üfleme ağızlığının olduğu bölümden borunun içerisine yerleştirilir ve böylece kullanıma hazır hale gelir.\n\nTamamen kendi üretimimizdir.",
+    image: "/images/products/aticilar/ufleme-borusu.png",
+    gallery: ["/images/products/aticilar/ufleme-borusu-enjektor.png"],
+    imageContain: true,
+    featured: true,
+    specs: [
+      { label: "Çalışma", value: "Üfleme basıncı" },
+      { label: "Ses", value: "Tamamen sessiz" },
+      { label: "Uzunluk", value: "125 cm" },
+      { label: "Ağırlık", value: "300 gram" },
+      { label: "Atış mesafesi", value: "10 – 15 metre" },
+      { label: "Gövde", value: "Alüminyum, galvaniz giydirme" },
+      { label: "Üretim", value: "Vetelsan" },
+    ],
+  },
+  {
+    slug: "havali-tufek",
+    name: "Havalı Tüfek",
+    categorySlug: "aticilar",
+    shortDescription:
+      "Dürbünlü, kademeli menzil ayarlı, tamamen sessiz havalı atıcı.",
+    description:
+      "En uzun menzilli enjektör atıcı tüfektir. Tamamen sessizdir, bu nedenle güvenle kullanılabilir. Küçük ve büyük tüm hayvanlarda kullanılabilir.\n\nTüfek hava tankı, yanında gönderilen pompa ile doldurulur. Tek dolumda en az 80 atış yapılabilmektedir. Tüfekte 3 kademeli mesafe ayar vanası bulunur; atılacak mesafe için en ideal ayar seçilebilir.\n\nÜzerindeki dürbün sayesinde net görüş sağlar.",
+    image: "/images/products/aticilar/havali-tufek.png",
+    gallery: ["/images/products/aticilar/havali-tufek-2.png"],
+    imageContain: true,
+    featured: true,
+    specs: [
+      { label: "Çalışma", value: "Hava tankı (pompa ile dolum)" },
+      { label: "Ses", value: "Tamamen sessiz" },
+      { label: "Namlu boyu", value: "70 cm" },
+      { label: "Kapasite", value: "Tek dolumda en az 80 atış" },
+      { label: "Mesafe ayarı", value: "3 kademeli vana" },
+      { label: "Görüş", value: "Dürbün" },
+      { label: "Kullanım", value: "Küçük ve büyük tüm hayvanlar" },
+    ],
+  },
+  {
+    slug: "funyeli-enjektor",
+    name: "Fünyeli Enjektör",
+    categorySlug: "enjektorler",
+    shortDescription:
+      "Parçalanmaya dayanıklı, 2.5–3 ml ilaç hazneli fünyeli enjektör.",
+    description:
+      "Arka yönlendirici vidalı kanatçık sistemi ve kullanım kolaylığı sağlayan kapsül-kartuş gövdesi ile üretilmiştir. Kullanım sırasında parçalanmaya ve dağılmaya dayanıklı birinci sınıf malzemeden imal edilir. İlaç haznesi 2.5–3 ml’dir. Ürün boş vaziyette gönderilir; doz, kullanılacak hayvanın cinsi ve ağırlığına göre enjeksiyon şırıngası ile ayarlanır. Tamamen kendi üretimimizdir.",
+    image: "/images/categories/enjektorler.jpg",
+    featured: true,
+    specs: [
+      { label: "İlaç haznesi", value: "2.5 – 3 ml" },
+      { label: "Gönderim", value: "İlaçsız / boş" },
+      { label: "Üretim", value: "Vetelsan" },
+    ],
+  },
+  {
+    slug: "uflemeli-enjektor",
+    name: "Üflemeli Enjektör (Tüf Tüf)",
+    categorySlug: "enjektorler",
+    shortDescription:
+      "Yakın mesafe müdahaleler için üflemeli enjektör sistemi.",
+    description:
+      "Başıboş ve kaçan hayvanların yakalanmasında kullanılan üflemeli (tüf tüf) enjektör. Yakın mesafe saha kullanımına uygun, pratik ve kontrollü uygulama sunar.",
+    image: "/images/categories/enjektorler.jpg",
+    featured: true,
+    specs: [{ label: "Uygulama", value: "Yakın mesafe saha kullanımı" }],
+  },
+  {
+    slug: "havali-tufek-enjektoru",
+    name: "Havalı Tüfek Enjektörü",
+    categorySlug: "enjektorler",
+    shortDescription:
+      "Havalı tüfek sistemleriyle uyumlu saha enjektörü.",
+    description:
+      "Havalı tüfek sistemleriyle birlikte kullanılan enjektör çözümü. Uzaktan müdahale gereken saha operasyonlarında güvenli enjeksiyon desteği sağlar.",
+    image: "/images/categories/aticilar.jpg",
+  },
+  {
+    slug: "muayene-eldiveni",
+    name: "Muayene Eldiveni",
+    categorySlug: "cerrahi-ve-medikal",
+    shortDescription:
+      "Tek kullanımlık, steril olmayan muayene eldiveni. S-M-L beden.",
+    description:
+      "Tek kullanımlıktır ve steril değildir. 100’lük kutularda gönderilir.\n\nHer ebatta elinize göre bedenleri vardır (S-M-L).",
+    image: "/images/products/cerrahi-medikal/muayene-eldiveni.png",
+    gallery: ["/images/products/cerrahi-medikal/muayene-eldiveni-2.png"],
+    imageContain: true,
+    featured: true,
+    specs: [
+      { label: "Kullanım", value: "Tek kullanımlık" },
+      { label: "Sterilite", value: "Steril değil" },
+      { label: "Ambalaj", value: "100’lük kutu" },
+      { label: "Beden", value: "S – M – L" },
+    ],
+  },
+  {
+    slug: "steril-cerrahi-eldiven",
+    name: "Steril Cerrahi Eldiven",
+    categorySlug: "cerrahi-ve-medikal",
+    shortDescription:
+      "Doğal kauçuk lateks, his kaybı yaşatmayan steril cerrahi eldiven.",
+    description:
+      "Doğal kauçuk lateksten üretilmiştir. Parmak ve avuç içi kalınlığı sayesinde his kaybı yaşamadan ve yırtılmadan kullanılabilir.\n\nÖzel formüle edilmiş yumuşak dış yüzeyi, uzun süreli kullanımda el yorgunluğunu azaltır. Bilekliklerinin kıvrımlı ve uzun konçlu olması, ameliyat önlük kol manşetlerinde gevşeme ve kaymayı engeller.\n\nBu sayede cerrahi müdahaleler sırasında maksimum konfor ve güvenlik sağlanır.",
+    image: "/images/products/cerrahi-medikal/steril-cerrahi-eldiven.png",
+    gallery: ["/images/products/cerrahi-medikal/steril-cerrahi-eldiven-2.png"],
+    imageContain: true,
+    specs: [
+      { label: "Malzeme", value: "Doğal kauçuk lateks" },
+      { label: "Sterilite", value: "Steril" },
+      { label: "Konç", value: "Kıvrımlı, uzun" },
+      { label: "Kullanım", value: "Cerrahi müdahale" },
+    ],
+  },
+  {
+    slug: "steril-gaz-kompres",
+    name: "Steril Gaz Kompres",
+    categorySlug: "cerrahi-ve-medikal",
+    shortDescription:
+      "%100 pamuk, buhar sterilizasyonlu, yüksek emicilikli gaz kompres.",
+    description:
+      "%100 pamuk dokusu sayesinde cildin nefes almasını sağlar. Buhar sterilizasyonu yöntemi ile steril edilmiştir.\n\nHidrofil özelliği sayesinde kanamalara karşı yüksek emiciliği vardır. Ürün tek kullanımlıktır.",
+    image: "/images/products/cerrahi-medikal/steril-gaz-kompres.png",
+    gallery: ["/images/products/cerrahi-medikal/steril-gaz-kompres-2.png"],
+    imageContain: true,
+    specs: [
+      { label: "Doku", value: "%100 pamuk" },
+      { label: "Sterilizasyon", value: "Buhar" },
+      { label: "Özellik", value: "Hidrofil, yüksek emicilik" },
+      { label: "Kullanım", value: "Tek kullanımlık" },
+    ],
+  },
+  {
+    slug: "spanc",
+    name: "Spanç",
+    categorySlug: "cerrahi-ve-medikal",
+    shortDescription:
+      "Yara temizliği ve kapatma için yumuşak, hava geçirgen spanç.",
+    description:
+      "Yaranın temizliği ve ardından steril kapatıcı olarak kullanılır. Yaraya yapışmayan özel yumuşak dokusu sayesinde son derece konforludur.\n\nHızlı ve yüksek emiciliği sayesinde yaranın iyileşmesi için gerekli ortamı sağlamaya yardımcı olur. Hava geçirgendir, cildin nefes almasını sağlar.",
+    image: "/images/products/cerrahi-medikal/spanc.png",
+    gallery: ["/images/products/cerrahi-medikal/spanc-2.png"],
+    imageContain: true,
+    specs: [
+      { label: "Kullanım", value: "Yara temizliği ve kapatma" },
+      { label: "Doku", value: "Yumuşak, yaraya yapışmaz" },
+      { label: "Emicilik", value: "Hızlı ve yüksek" },
+      { label: "Hava", value: "Geçirgen" },
+    ],
+  },
+  {
+    slug: "sargi-bezi",
+    name: "Sargı Bezi",
+    categorySlug: "cerrahi-ve-medikal",
+    shortDescription:
+      "20 tel, %100 pamuklu, tekli ambalajlı sargı bezi.",
+    description:
+      "Ameliyat sonrasında tedavilerde, her türlü pansuman gerektiren durumlarda ve tedavi bölgesinde sabitleme amacıyla kullanılır.\n\n20 tel, %100 pamuklu dokumadan üretilmiştir. Tekli ambalaj paketlerindedir. Steril değildir.",
+    image: "/images/products/cerrahi-medikal/sargi-bezi.png",
+    gallery: ["/images/products/cerrahi-medikal/sargi-bezi-2.png"],
+    imageContain: true,
+    specs: [
+      { label: "Doku", value: "20 tel, %100 pamuk" },
+      { label: "Ambalaj", value: "Tekli paket" },
+      { label: "Sterilite", value: "Steril değil" },
+      { label: "Kullanım", value: "Pansuman ve sabitleme" },
+    ],
+  },
+  {
+    slug: "kendinden-yapiskanli-bandaj",
+    name: "Kendinden Yapışkanlı Bandaj",
+    categorySlug: "cerrahi-ve-medikal",
+    shortDescription:
+      "Kopçasız, esnek ve hava geçirgen kendinden yapışkanlı bandaj.",
+    description:
+      "Yara pedleri, kompresler gibi tıbbi malzemelerin hareketli bölgelere sabitlenmesinde kullanılır. Sabitlenmesi için kopça gerektirmez; kendi üzerine kolay ve sıkıca tutunur.\n\nHava geçirgendir, cilde nefes aldırır. Esnek yapısı sayesinde vücut kıvrımlarına uyum sağlar. Tekli ambalajlardadır.",
+    image: "/images/products/cerrahi-medikal/kendinden-yapiskanli-bandaj.png",
+    gallery: [
+      "/images/products/cerrahi-medikal/kendinden-yapiskanli-bandaj-2.png",
+    ],
+    imageContain: true,
+    specs: [
+      { label: "Sabitleme", value: "Kopçasız, kendinden yapışkanlı" },
+      { label: "Yapı", value: "Esnek, hava geçirgen" },
+      { label: "Ambalaj", value: "Tekli" },
+    ],
+  },
+  {
+    slug: "cerrahi-maske",
+    name: "Cerrahi Maske",
+    categorySlug: "cerrahi-ve-medikal",
+    shortDescription:
+      "3 katlı, burun telli, nefes alması kolay cerrahi maske.",
+    description:
+      "3 katlıdır. Burun kısmındaki telli yapısı sayesinde kolayca ayarlama yapabilirsiniz.\n\nDaha kolay nefes alabileceğiniz bir yapıya sahiptir. Toza karşı filtreleme özelliği vardır.",
+    image: "/images/products/cerrahi-medikal/cerrahi-maske-2.png",
+    gallery: ["/images/products/cerrahi-medikal/cerrahi-maske.png"],
+    imageContain: true,
+    specs: [
+      { label: "Katman", value: "3 katlı" },
+      { label: "Burun", value: "Ayarlanabilir tel" },
+      { label: "Filtre", value: "Toz karşıtı" },
+    ],
+  },
+  {
+    slug: "ameliyat-onlugu",
+    name: "Ameliyat Önlüğü",
+    categorySlug: "cerrahi-ve-medikal",
+    shortDescription:
+      "Tek kullanımlık, 45 g hafif, lastikli bilekli ameliyat önlüğü.",
+    description:
+      "Tüm cerrahi operasyonlarda kullanımı uygundur. Tek kullanımlıktır.\n\n45 gramlık ağırlığıyla oldukça hafif ve kullanışlıdır. El bileklerinin lastikli olması sayesinde operasyon sırasında rahatlık ve konfor sağlar.",
+    image: "/images/products/cerrahi-medikal/ameliyat-onlugu.png",
+    imageContain: true,
+    specs: [
+      { label: "Kullanım", value: "Tek kullanımlık" },
+      { label: "Ağırlık", value: "45 gram" },
+      { label: "Bilek", value: "Lastikli" },
+    ],
+  },
+  {
+    slug: "portegu",
+    name: "Portegü",
+    categorySlug: "cerrahi-ve-medikal",
+    shortDescription:
+      "Dikiş atma işlemleri için kilit mekanizmalı cerrahi portegü.",
+    description:
+      "Portegü ve çeşitleri, yapılacak olan ameliyatlarda veya küçük pansumanlarda dikiş atma işlemleri için kullanılan bir cerrahi el aletidir. Uç kısımlarında bulunan kilit mekanizması sayesinde iğne tam bir şekilde tutulabilir; dikiş atma işlemleri kolaylıkla yapılabilir.\n\nPortegülerin farklı çeşidi vardır. Ele ve avuç kısmına tam oturan yapısından dolayı işlemlerde pratiklik sağlar.",
+    image: "/images/products/cerrahi-medikal/portegu.png",
+    gallery: ["/images/products/cerrahi-medikal/portegu-2.png"],
+    imageContain: true,
+    specs: [
+      { label: "Kullanım", value: "Dikiş atma" },
+      { label: "Özellik", value: "Uç kilit mekanizması" },
+      { label: "Çeşit", value: "Farklı modeller mevcut" },
+    ],
+  },
+  {
+    slug: "veteriner-makas",
+    name: "Veteriner Makas",
+    categorySlug: "cerrahi-ve-medikal",
+    shortDescription:
+      "Paslanmaz çelik, elde kolay kavranan veteriner makas.",
+    description:
+      "Paslanmaz çelikten üretilmiştir. Elde kolay kavranan yapısıyla rahat bir kullanım sağlar.\n\nÇeşitleri mevcuttur.",
+    image: "/images/products/cerrahi-medikal/veteriner-makas.png",
+    gallery: ["/images/products/cerrahi-medikal/veteriner-makas-2.png"],
+    imageContain: true,
+    specs: [
+      { label: "Malzeme", value: "Paslanmaz çelik" },
+      { label: "Kullanım", value: "Ergonomik tutuş" },
+      { label: "Çeşit", value: "Farklı modeller mevcut" },
+    ],
+  },
+  {
+    slug: "hemostatik-pens",
+    name: "Hemostatik Pens",
+    categorySlug: "cerrahi-ve-medikal",
+    shortDescription:
+      "Operasyon sırasında kan durdurmaya yardımcı hemostatik pens.",
+    description:
+      "Hemostatik pens, ameliyatlar sırasında kullanılan bir cerrahi alettir. Cerrahi operasyonlarda kanı durdurmaya yardımcı olur ve gerekli müdahalelerde kullanılır.\n\nElle kullanımı yapıldığından ergonomik yapıya sahiptir ve rahat bir kullanım sunar. Farklı çeşit ve boyutları mevcuttur.",
+    image: "/images/products/cerrahi-medikal/hemostatik-pens.png",
+    gallery: ["/images/products/cerrahi-medikal/hemostatik-pens-2.png"],
+    imageContain: true,
+    specs: [
+      { label: "Kullanım", value: "Kan durdurma / cerrahi müdahale" },
+      { label: "Yapı", value: "Ergonomik el aleti" },
+      { label: "Çeşit", value: "Farklı boyut ve modeller" },
+    ],
+  },
+  {
+    slug: "bisturi-sapi-ucu",
+    name: "Bisturi Sapı & Ucu",
+    categorySlug: "cerrahi-ve-medikal",
+    shortDescription:
+      "Değiştirilebilir uçlu, ergonomik cerrahi bisturi sapı.",
+    description:
+      "Cerrahi operasyonlar sırasında müdahale için kesik atmaya yarayan bir cerrahi alettir. Özel yapısı sayesinde ameliyat esnasında yüksek performans gösterir ve operasyon cerrahına kolaylık sağlar.\n\nErgonomik yapısı sayesinde ele tam oturur. Bisturi uçları sapına takılır ve kullanıma hazır hale gelir. Farklı numaralarda bisturi ucu çeşitleri ile farklı boyut ve modeller mevcuttur.",
+    image: "/images/products/cerrahi-medikal/bisturi-sapi-ucu.png",
+    imageContain: true,
+    specs: [
+      { label: "Kullanım", value: "Cerrahi kesi" },
+      { label: "Uç", value: "Sapa takılır, farklı numaralar" },
+      { label: "Yapı", value: "Ergonomik sap" },
+    ],
+  },
+  {
+    slug: "cerrahi-alet-kutusu",
+    name: "Cerrahi Alet Kutusu",
+    categorySlug: "cerrahi-ve-medikal",
+    shortDescription:
+      "Paslanmaz metal, kapaklı cerrahi alet muhafaza kutusu.",
+    description:
+      "Cerrahi operasyon sırasında aletleri muhafaza ve korumaya yarayan kutudur. Paslanmaz metalden imal edilmiştir.\n\nKapaklı olması sayesinde güvenli bir muhafaza sağlar.",
+    image: "/images/products/cerrahi-medikal/cerrahi-alet-kutusu.png",
+    imageContain: true,
+    specs: [
+      { label: "Malzeme", value: "Paslanmaz metal" },
+      { label: "Kapak", value: "Kapaklı, güvenli muhafaza" },
+    ],
+  },
+  {
+    slug: "hayvan-tasima-sedyesi",
+    name: "Hayvan Taşıma Sedyesi",
+    categorySlug: "cerrahi-ve-medikal",
+    shortDescription:
+      "60×120 cm, antibakteriyel brandalı, sabitleme bantlı sedye.",
+    description:
+      "Yanlarında sabitleme bantları bulunmaktadır. Yaklaşık 5 kg ağırlığındadır ve 60 x 120 cm ölçülerindedir.\n\nBrandası antibakteriyel özellikte üretilmiştir. Elle taşınması gereken bir üründür.",
+    image: "/images/products/cerrahi-medikal/hayvan-tasima-sedyesi.png",
+    gallery: ["/images/products/cerrahi-medikal/hayvan-tasima-sedyesi-2.png"],
+    imageContain: true,
+    specs: [
+      { label: "Ölçü", value: "60 x 120 cm" },
+      { label: "Ağırlık", value: "5 kg" },
+      { label: "Branda", value: "Antibakteriyel" },
+      { label: "Taşıma", value: "Elle, sabitleme bantlı" },
+    ],
+  },
+  {
+    slug: "veteriner-muayene-masasi",
+    name: "Veteriner Muayene Masası",
+    categorySlug: "cerrahi-ve-medikal",
+    shortDescription:
+      "Eğim ayarlı, serum askılı, dört tekerli veteriner muayene masası.",
+    description:
+      "Tüm cerrahi operasyon öncesi muayene etmek ve teşhis koymak amacıyla kullanılır. Paslanmaz çelik ve elektrostatik boya sayesinde operasyon sonrası kolayca yıkanıp temizlenebilir.\n\nHer iki tarafa eğim ayarı yapılabilmektedir. Serum askısı mevcuttur. İkisi frenli olmak üzere dört adet tekeri ve ip bağlama yerleri bulunur.",
+    image: "/images/products/cerrahi-medikal/veteriner-muayene-masasi.png",
+    gallery: [
+      "/images/products/cerrahi-medikal/veteriner-muayene-masasi-2.png",
+    ],
+    imageContain: true,
+    featured: true,
+    specs: [
+      { label: "Malzeme", value: "Paslanmaz çelik, elektrostatik boya" },
+      { label: "Eğim", value: "İki taraflı ayar" },
+      { label: "Aksesuar", value: "Serum askısı, ip bağlama yerleri" },
+      { label: "Teker", value: "4 adet, 2’si frenli" },
+    ],
+  },
+  {
+    slug: "veteriner-operasyon-masasi",
+    name: "Veteriner Operasyon Masası",
+    categorySlug: "cerrahi-ve-medikal",
+    shortDescription:
+      "304 paslanmaz, elektrik motorlu, kumandalı operasyon masası.",
+    description:
+      "Cerrahi operasyonlar için oldukça rahat ve kullanışlıdır. 304 kalite paslanmaz çelikten üretilmiştir. Antibakteriyel toz boya kullanılmıştır.\n\nİkisi frenli olmak üzere dört adet tekeri bulunmaktadır. Elektrik motorlu ve kumandalıdır. İki taraflı eğim ayarı vardır.",
+    image: "/images/products/cerrahi-medikal/veteriner-operasyon-masasi.png",
+    gallery: [
+      "/images/products/cerrahi-medikal/veteriner-operasyon-masasi-2.png",
+    ],
+    imageContain: true,
+    featured: true,
+    specs: [
+      { label: "Malzeme", value: "304 paslanmaz çelik" },
+      { label: "Boya", value: "Antibakteriyel toz boya" },
+      { label: "Hareket", value: "Elektrik motorlu, kumandalı" },
+      { label: "Eğim", value: "İki taraflı ayar" },
+      { label: "Teker", value: "4 adet, 2’si frenli" },
+    ],
+  },
+  {
+    slug: "kopek-agizligi",
+    name: "Köpek Ağızlığı",
+    categorySlug: "diger-urunler",
+    shortDescription: "Güvenli müdahale ve sevkiyat için köpek ağızlıkları.",
+    description:
+      "Klinik ve saha kullanımına uygun köpek ağızlıkları. Güvenli muayene, tedavi ve nakil süreçlerinde hayvan ve ekip güvenliğini destekler.",
+    image: "/images/categories/diger.jpg",
+  },
+  {
+    slug: "tedavi-sonrasi-yakalik",
+    name: "Tedavi Sonrası Yakalık",
+    categorySlug: "diger-urunler",
+    shortDescription:
+      "Kedi ve köpekler için tedavi sonrası koruyucu yakalık.",
+    description:
+      "Operasyon ve tedavi sonrası dönemde hayvanın yara bölgesine ulaşmasını önleyen koruyucu yakalık çözümleri.",
+    image: "/images/categories/diger.jpg",
+  },
+  {
+    slug: "kulak-kupesi-isaretleme",
+    name: "Kulak Küpesi ve İşaretleme",
+    categorySlug: "isaretleme-numaralandirma",
+    shortDescription:
+      "Sokak ve besi hayvanları için kimliklendirme ekipmanları.",
+    description:
+      "Hayvan takibinde kullanılan kulak küpeleri ve işaretleme ekipmanları. Sokak hayvanları ile besi hayvanlarının numaralandırılması ve izlenmesi için tasarlanmıştır.",
+    image: "/images/categories/isaretleme.jpg",
+    featured: true,
+  },
+  {
+    slug: "kedi-kopek-mamasi",
+    name: "Kedi ve Köpek Mamaları",
+    categorySlug: "mamalar",
+    shortDescription: "Evcil hayvanlar için mama ve beslenme ürünleri.",
+    description:
+      "Kedi ve köpekler için formüle edilmiş mama çeşitleri. Klinik ve bakım süreçlerini destekleyen beslenme çözümleri sunar.",
+    image: "/images/categories/mamalar.jpg",
+  },
+  {
+    slug: "yakalama-aparati",
+    name: "Yakalama Aparatı",
+    categorySlug: "yakalama-aparatlari",
+    shortDescription:
+      "Kedi ve köpeklerin güvenli yakalanması ve sevki için aparatlar.",
+    description:
+      "Kedi ve köpeklerin yakalanıp bir yerden bir yere sevki için kullanılan yakalama aparatları. Saha ekipleri ve klinik personeli için kontrollü kullanım sağlar.",
+    image: "/images/categories/aparatlari.jpg",
+    featured: true,
+  },
+  {
+    slug: "tasinabilir-yakalama-kafesi",
+    name: "Taşınabilir Yakalama Kafesi",
+    categorySlug: "yakalama-kafesleri",
+    shortDescription:
+      "Stressiz yakalama ve nakil için taşınabilir kafes sistemi.",
+    description:
+      "Acil müdahale ve saha operasyonlarında kullanılan taşınabilir yakalama kafesleri. Hayvanın güvenli şekilde tutulması ve nakledilmesi için tasarlanmıştır.",
+    image: "/images/categories/kafesleri.jpg",
+    featured: true,
+  },
+  {
+    slug: "mudahale-kafesi",
+    name: "Müdahale Kafesi",
+    categorySlug: "yakalama-kafesleri",
+    shortDescription: "Klinik ve saha müdahaleleri için yakalama kafesi.",
+    description:
+      "Veteriner müdahale, muayene ve kısa süreli tutma ihtiyaçları için kullanılan yakalama kafesi. Dayanıklı gövde yapısıyla saha koşullarına uygundur.",
+    image: "/images/categories/kafesleri.jpg",
+  },
+];
+
+export function getProductBySlug(slug: string) {
+  return products.find((product) => product.slug === slug);
+}
+
+export function getProductsByCategory(categorySlug: string) {
+  return products.filter((product) => product.categorySlug === categorySlug);
+}
+
+export function getProductCountByCategory(categorySlug: string) {
+  return products.filter((product) => product.categorySlug === categorySlug)
+    .length;
+}
+
+export function getFeaturedProducts() {
+  return products.filter((product) => product.featured);
+}
+
+export function getRelatedProducts(slug: string, limit = 3) {
+  const current = getProductBySlug(slug);
+  if (!current) return products.slice(0, limit);
+
+  const sameCategory = products.filter(
+    (product) =>
+      product.slug !== slug && product.categorySlug === current.categorySlug,
+  );
+
+  if (sameCategory.length >= limit) return sameCategory.slice(0, limit);
+
+  return [
+    ...sameCategory,
+    ...products.filter(
+      (product) =>
+        product.slug !== slug && product.categorySlug !== current.categorySlug,
+    ),
+  ].slice(0, limit);
+}
+
+export function getProductGallery(product: Product) {
+  const extras = product.gallery ?? [];
+  return [product.image, ...extras.filter((src) => src !== product.image)];
+}
+
+export function getProductCategoryName(categorySlug: string) {
+  return getCategoryBySlug(categorySlug)?.name ?? categorySlug;
+}
+
+export function getProductHref(product: Pick<Product, "categorySlug" | "slug">) {
+  return `/urunler/${product.categorySlug}/${product.slug}`;
+}

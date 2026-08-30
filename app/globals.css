@@ -1,26 +1,266 @@
 @import "tailwindcss";
 
+@theme inline {
+  --color-primary: #d71920;
+  --color-primary-dark: #b4141a;
+  --color-night: #17191c;
+  --color-charcoal: #25282b;
+  --color-dark: #25282b;
+  --color-ink: #17191c;
+  --color-muted: #70747a;
+  --color-light: #f7f7f5;
+  --color-surface: #f7f7f5;
+  --color-studio: #f5f5f3;
+  --color-soft: #f6eaea;
+  --color-line: #e6e6e3;
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-manrope);
+  --text-hero: clamp(2.25rem, 1.2rem + 4.2vw, 4.75rem);
+  --text-section: clamp(2.125rem, 1.35rem + 2.2vw, 3.5rem);
+  --text-card: clamp(1.1875rem, 1.05rem + 0.55vw, 1.625rem);
+  --text-card-lg: clamp(1.25rem, 1rem + 1vw, 1.875rem);
+  --text-lead: clamp(1.5rem, 1.15rem + 1.4vw, 2.625rem);
+  --text-stat: clamp(2.25rem, 1.4rem + 2.6vw, 4rem);
+  --radius-card: 6px;
+}
+
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #17191c;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html {
+  scroll-behavior: smooth;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (min-width: 640px) {
+  body {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-manrope), var(--font-inter), ui-sans-serif, system-ui,
+      sans-serif;
+    letter-spacing: -0.03em;
+    font-weight: 500;
+    line-height: 1.15;
+  }
+}
+
+::selection {
+  background: #d71920;
+  color: #ffffff;
+}
+
+@layer components {
+  .type-kicker {
+    @apply text-[11px] font-medium uppercase tracking-[0.14em] text-primary sm:text-[12px];
+  }
+
+  .type-h1 {
+    font-size: var(--text-hero);
+    line-height: 1.04;
+    font-weight: 500;
+    letter-spacing: -0.04em;
+  }
+
+  .type-h2 {
+    font-size: var(--text-section);
+    line-height: 1.1;
+    font-weight: 500;
+    letter-spacing: -0.04em;
+  }
+
+  .type-h3 {
+    font-size: var(--text-card);
+    line-height: 1.2;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+  }
+
+  .type-h3-lg {
+    font-size: var(--text-card-lg);
+    line-height: 1.15;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+  }
+
+  .type-body {
+    @apply text-[15px] leading-[1.65] text-muted sm:text-base sm:leading-[1.7];
+  }
+
+  .type-small {
+    @apply text-[12px] font-medium uppercase tracking-[0.14em];
+  }
+
+  .type-stat {
+    font-size: var(--text-stat);
+    line-height: 1;
+    font-weight: 500;
+    letter-spacing: -0.04em;
+  }
+
+  .section-home {
+    @apply py-[72px] lg:py-[120px];
+  }
+
+  .section-home-first {
+    @apply pt-16 pb-[72px] lg:pt-24 lg:pb-[120px];
+  }
+
+  .section-stack {
+    @apply mt-10 lg:mt-16;
+  }
+
+  .cta-text {
+    @apply inline-flex min-h-12 items-center gap-2 text-[15px] font-medium text-ink transition-colors duration-300 hover:text-primary;
+  }
+
+  .btn-primary {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-[6px] bg-primary px-6 py-3 text-sm font-medium tracking-wide text-white transition-colors duration-200 hover:bg-primary-dark;
+  }
+
+  .btn-secondary {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-[6px] border border-white/20 bg-white/8 px-6 py-3 text-sm font-medium tracking-wide text-white transition-colors duration-200 hover:bg-white hover:text-ink;
+  }
+
+  .btn-outline {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-[6px] border border-line bg-white px-6 py-3 text-sm font-medium tracking-wide text-ink transition-colors duration-200 hover:border-primary hover:text-primary;
+  }
+
+  .btn-dark {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-[6px] bg-ink px-6 py-3 text-sm font-medium tracking-wide text-white transition-colors duration-200 hover:bg-charcoal;
+  }
+
+  .section-kicker {
+    @apply mb-3 inline-flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.14em] text-primary sm:text-[12px];
+  }
+}
+
+@layer utilities {
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  @keyframes fair-marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  .fair-marquee {
+    width: max-content;
+    display: flex;
+    animation: fair-marquee 42s linear infinite;
+    will-change: transform;
+  }
+
+  .fair-marquee.is-paused {
+    animation-play-state: paused;
+  }
+
+  @media (hover: hover) {
+    .fair-marquee:hover {
+      animation-play-state: paused;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .fair-marquee {
+      animation-duration: 48s;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .fair-marquee {
+      animation: none;
+      will-change: auto;
+    }
+  }
+
+  @keyframes hero-progress {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  .hero-progress-fill {
+    transform-origin: left center;
+    animation: hero-progress 7s linear forwards;
+  }
+
+  .hero-progress-fill.is-paused {
+    animation-play-state: paused;
+  }
+
+  .hero-media-layer {
+    opacity: 0;
+    transform: scale(1.04);
+    transition:
+      opacity 800ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .hero-media-layer.is-active {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .hero-media-layer:not(.is-ready) {
+    transition: none;
+  }
+
+  .hero-photo {
+    object-position: var(--hero-pos-m, center);
+  }
+
+  @media (min-width: 768px) {
+    .hero-photo {
+      object-position: var(--hero-pos, center);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-progress-fill {
+      animation: none;
+    }
+
+    .hero-media-layer,
+    .hero-media-layer.is-active {
+      transform: none;
+      transition: opacity 200ms linear;
+    }
+  }
 }
