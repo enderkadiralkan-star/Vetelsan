@@ -1,6 +1,6 @@
 const tr = {
   meta: {
-    titleDefault: "Vetelsan | Veteriner Sağlık Ürünleri",
+    titleDefault: "Vetelsan | Veteriner Sağlık Ürünleri, İlaç ve Saha Ekipmanları",
     titleTemplate: "%s | Vetelsan",
     description:
       "Vetelsan; veteriner sağlık ürünleri, ilaçlar, aşılar, cerrahi ve medikal malzemeler ile hayvan yakalama ekipmanları sunan kurumsal bir veteriner sağlık markasıdır.",
@@ -74,11 +74,17 @@ const tr = {
       "{legalName}. Veteriner sağlık ürünleri, ilaçlar, aşılar ve saha ekipmanlarında {year}’den beri güvenilir çözüm ortağı.",
     headline: "Hayvan sağlığı için\ngüvenilir çözümler.",
     pages: "Hızlı Menü",
+    products: "Ürünlerimiz",
+    medicines: "İlaçlar & Aşılar",
     contact: "İletişim",
     whatsapp: "WhatsApp",
     copyright: "© {year} {name}. Tüm hakları saklıdır.",
     tagline: "Veteriner sağlık ürünleri ve ekipmanları",
     kvkk: "KVKK Aydınlatma Metni",
+  },
+  seo: {
+    relatedPages: "İlgili sayfalar",
+    faqTitle: "Sık sorulan sorular",
   },
   home: {
     heroAria: "Vetelsan tanıtım slaytları",
@@ -125,6 +131,13 @@ const tr = {
     fairsCaptionCyprus: "Kıbrıs Belediyeler Birliği Başkanı standımızı ziyareti",
     fairsCaptionIran: "İran belediye başkanlarının standımızı ziyareti",
     fairsCaptionAdana: "Adana fuar standımızın genel görünümü",
+    locationKicker: "Konum",
+    locationTitle: "Merkezimiz Malatya’da",
+    locationLead:
+      "Battalgazi’daki merkezimizden Türkiye genelindeki müşterilerimize ürün, ilaç ve saha ekipmanı tedariki sunuyoruz.",
+    locationContactKicker: "İletişim",
+    locationContact: "Bize ulaşın",
+    locationCall: "Doğrudan arayın",
   },
   productsPage: {
     kicker: "Portföy",
@@ -164,6 +177,7 @@ const tr = {
     categoryKicker: "İlaçlar & aşılar",
     stats: "{categories} kategori · {products} ürün",
     catalogNav: "İlaç kategorileri",
+    productListing: "Ürün kataloğu",
     activeIngredient: "Etken madde",
     usage: "Uygulama",
     getInfo: "Bilgi Alın",
@@ -331,7 +345,7 @@ const tr = {
 
 const en: { [K in keyof typeof tr]: { [P in keyof (typeof tr)[K]]: string } } = {
   meta: {
-    titleDefault: "Vetelsan | Veterinary Health Products",
+    titleDefault: "Vetelsan | Veterinary Health Products, Medicines & Field Equipment",
     titleTemplate: "%s | Vetelsan",
     description:
       "Vetelsan is a veterinary health brand supplying veterinary products, medicines, vaccines, surgical and medical supplies, and animal capture equipment.",
@@ -405,11 +419,17 @@ const en: { [K in keyof typeof tr]: { [P in keyof (typeof tr)[K]]: string } } = 
       "{legalName}. A trusted partner in veterinary health products, medicines, vaccines, and field equipment since {year}.",
     headline: "Reliable solutions\nfor animal health.",
     pages: "Quick Links",
+    products: "Products",
+    medicines: "Medicines & Vaccines",
     contact: "Contact",
     whatsapp: "WhatsApp",
     copyright: "© {year} {name}. All rights reserved.",
     tagline: "Veterinary health products and equipment",
     kvkk: "Personal Data Notice",
+  },
+  seo: {
+    relatedPages: "Related pages",
+    faqTitle: "Frequently asked questions",
   },
   home: {
     heroAria: "Vetelsan introduction slides",
@@ -455,6 +475,13 @@ const en: { [K in keyof typeof tr]: { [P in keyof (typeof tr)[K]]: string } } = 
     fairsCaptionCyprus: "Visit of the President of the Union of Cyprus Municipalities",
     fairsCaptionIran: "Visit of Iranian mayors to our stand",
     fairsCaptionAdana: "General view of our Adana exhibition stand",
+    locationKicker: "Location",
+    locationTitle: "Our headquarters in Malatya",
+    locationLead:
+      "From our Battalgazi headquarters we supply products, medicines, and field equipment to customers across Türkiye.",
+    locationContactKicker: "Contact",
+    locationContact: "Get in touch",
+    locationCall: "Call us directly",
   },
   productsPage: {
     kicker: "Portfolio",
@@ -494,6 +521,7 @@ const en: { [K in keyof typeof tr]: { [P in keyof (typeof tr)[K]]: string } } = 
     categoryKicker: "Medicines & vaccines",
     stats: "{categories} categories · {products} products",
     catalogNav: "Medicine categories",
+    productListing: "Product listing",
     activeIngredient: "Active ingredient",
     usage: "Administration",
     getInfo: "Request information",

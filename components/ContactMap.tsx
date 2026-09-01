@@ -3,15 +3,16 @@ import { Container } from "@/components/Container";
 import { FadeIn } from "@/components/FadeIn";
 import { getLocale } from "@/lib/i18n/locale";
 import { createT } from "@/lib/i18n/t";
-import { contact, mapLocation } from "@/lib/site";
+import { getMapDirectionsHref, getMapEmbedSrc } from "@/lib/map-urls";
+import { contact } from "@/lib/site";
 import { padIndex } from "@/lib/utils";
 
-const directionsHref = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(mapLocation.query)}`;
+const directionsHref = getMapDirectionsHref();
 
 export async function ContactMap() {
   const locale = await getLocale();
   const t = createT(locale);
-  const embedSrc = `https://maps.google.com/maps?q=${encodeURIComponent(mapLocation.query)}&hl=${locale}&z=${mapLocation.zoom}&output=embed`;
+  const embedSrc = getMapEmbedSrc(locale);
 
   return (
     <section id="konum" className="scroll-mt-24 bg-white py-16 sm:py-20 lg:py-[120px]">

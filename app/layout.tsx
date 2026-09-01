@@ -5,7 +5,9 @@ import { Header } from "@/components/Header";
 import { LanguageProvider } from "@/components/i18n/LanguageProvider";
 import { getLocale } from "@/lib/i18n/locale";
 import { createT } from "@/lib/i18n/t";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { defaultMetadata } from "@/lib/metadata";
+import { organizationSchema, websiteSchema } from "@/lib/seo/schema";
 import "./globals.css";
 
 const inter = Inter({
@@ -41,6 +43,7 @@ export default async function RootLayout({
   return (
     <html lang={locale} className={`${inter.variable} ${manrope.variable} h-full`}>
       <body className="flex min-h-full flex-col bg-white font-sans text-charcoal antialiased">
+        <JsonLd data={[organizationSchema(), websiteSchema()]} />
         <LanguageProvider locale={locale}>
           <a
             href="#icerik"

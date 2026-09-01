@@ -1,4 +1,5 @@
 import type { ContactInfo, SocialLink } from "./types";
+import { getSiteUrl } from "./seo/url";
 
 export const site = {
   name: "Vetelsan",
@@ -6,9 +7,14 @@ export const site = {
   tagline: "Hayvan sağlığında güvenilir çözüm ortağınız",
   description:
     "Vetelsan; veteriner sağlık ürünleri, ilaçlar, aşılar, cerrahi ve medikal malzemeler ile hayvan yakalama ekipmanları sunan kurumsal bir veteriner sağlık markasıdır.",
-  url: "https://www.vetelsan.com.tr",
+  logoPath: "/logo/vetelsan-logo.png",
   foundedYear: 1996,
 } as const;
+
+/** @deprecated Prefer getSiteUrl() from lib/seo/url for canonical URLs. */
+export function getSiteBaseUrl(): string {
+  return getSiteUrl();
+}
 
 export const contact: ContactInfo = {
   address: "Başharık Mahallesi Gönültaş Caddesi Irmak Sokak No: 9/A Battalgazi / MALATYA",

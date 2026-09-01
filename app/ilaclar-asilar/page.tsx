@@ -1,21 +1,29 @@
 import { MedicineCategoryGrid } from "@/components/medicines/MedicineCategoryGrid";
 import { MedicineHero } from "@/components/medicines/MedicineHero";
 import { CategoryNavigation } from "@/components/products/CategoryNavigation";
+import { CategorySeoBlock } from "@/components/seo/CategorySeoBlock";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { Container } from "@/components/Container";
 import { localizeMedicineCategories } from "@/lib/i18n/content";
 import { getLocale } from "@/lib/i18n/locale";
 import { createT } from "@/lib/i18n/t";
-import { pageMetadata } from "@/lib/metadata";
+import { categoryMetadata } from "@/lib/metadata";
+import { getMedicinesHubSeo } from "@/lib/seo/content";
+import { medicinesHubKeywords } from "@/lib/seo/keywords";
+import {
+  collectionPageSchema,
+  faqPageSchema,
+} from "@/lib/seo/schema";
 import { getMedicineCountByCategory, medicines } from "@/lib/medicines";
 import { padCount } from "@/lib/utils";
 
 export async function generateMetadata() {
   const locale = await getLocale();
-  const t = createT(locale);
-  return pageMetadata(
-    t("meta.medicinesTitle"),
-    t("meta.medicinesDescription"),
+  return categoryMetadata(
+    medicinesHubKeywords,
     "/ilaclar-asilar",
+    "/images/medicines/categories/asilar-cover.jpg",
+    "Vetelsan veteriner ilaç ve aşı kategorileri",
     locale,
   );
 }
@@ -24,9 +32,24 @@ export default async function MedicinesPage() {
   const locale = await getLocale();
   const t = createT(locale);
   const categories = localizeMedicineCategories(locale);
+  const seoContent = getMedicinesHubSeo(locale);
 
   return (
     <>
+      <JsonLd
+        data={[
+          collectionPageSchema({
+            name: medicinesHubKeywords.seoTitle,
+            description: medicinesHubKeywords.seoDescription,
+            path: "/ilaclar-asilar",
+            items: categories.map((category) => ({
+              name: category.name,
+              url: category.href,
+            })),
+          }),
+          ...(seoContent?.faq ? [faqPageSchema(seoContent.faq)] : []),
+        ]}
+      />
       <MedicineHero
         kicker={t("medicinesPage.kicker")}
         title={t("medicinesPage.title")}
@@ -60,6 +83,13 @@ export default async function MedicinesPage() {
           />
         </Container>
       </section>
+      {seoContent ? (
+        <CategorySeoBlock
+          content={seoContent}
+          relatedTitle={t("seo.relatedPages")}
+          faqTitle={t("seo.faqTitle")}
+        />
+      ) : null}
     </>
   );
 }

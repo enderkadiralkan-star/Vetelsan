@@ -6,34 +6,41 @@ import { ContactInfo } from "@/components/ContactInfo";
 import { ContactMap } from "@/components/ContactMap";
 import { Container } from "@/components/Container";
 import { FadeIn } from "@/components/FadeIn";
+import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { getLocale } from "@/lib/i18n/locale";
 import { createT } from "@/lib/i18n/t";
-import { pageMetadata } from "@/lib/metadata";
-import { padIndex } from "@/lib/utils";
+import { intentMetadata } from "@/lib/metadata";
+import { contactKeywords } from "@/lib/seo/keywords";
+import { localBusinessSchema } from "@/lib/seo/schema";
 
 export async function generateMetadata() {
   const locale = await getLocale();
-  const t = createT(locale);
-  return pageMetadata(
-    t("meta.contactTitle"),
-    t("meta.contactDescription"),
-    "/iletisim",
-    locale,
-  );
+  return intentMetadata(contactKeywords, "/iletisim", locale, {
+    absoluteTitle: true,
+    ogImage: "/images/hero/veterinary.jpg",
+    ogImageAlt: "Vetelsan iletişim",
+  });
 }
 
 export default async function ContactPage() {
   const t = createT(await getLocale());
+  const breadcrumbItems = [
+    { label: t("nav.home"), href: "/" },
+    { label: t("nav.contact") },
+  ];
 
   return (
     <>
+      <BreadcrumbSchema items={breadcrumbItems} />
+      <JsonLd data={localBusinessSchema()} />
       <ContactHero />
       <ContactQuickLinks />
       <section className="bg-studio py-16 sm:py-20 lg:py-[120px]">
         <Container>
           <FadeIn className="max-w-[640px]">
             <p className="type-kicker">
-              {padIndex(0)} — {t("contactPage.writeKicker")}
+              {t("contactPage.writeKicker")}
             </p>
             <h2 className="type-h2 mt-4 text-ink">{t("contactPage.formTitle")}</h2>
             <p className="type-body mt-5">{t("contactPage.formLead")}</p>

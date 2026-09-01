@@ -6,6 +6,9 @@ import { MedicineLegalNotice } from "@/components/medicines/MedicineLegalNotice"
 import { MedicineProductGrid } from "@/components/medicines/MedicineProductGrid";
 import { CategoryNavigation } from "@/components/products/CategoryNavigation";
 import { CategoryPageHero } from "@/components/products/CategoryPageHero";
+import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
+import { CategorySeoBlock } from "@/components/seo/CategorySeoBlock";
+import { JsonLd } from "@/components/seo/JsonLd";
 import {
   localizeMedicine,
   localizeMedicineCategories,
@@ -13,7 +16,14 @@ import {
 } from "@/lib/i18n/content";
 import { getLocale } from "@/lib/i18n/locale";
 import { createT } from "@/lib/i18n/t";
-import { pageMetadata } from "@/lib/metadata";
+import { categoryMetadata, notFoundMetadata } from "@/lib/metadata";
+import { getMedicineCategorySeo } from "@/lib/seo/content";
+import { getMedicineCategoryKeywords } from "@/lib/seo/keywords";
+import {
+  categoryMedicineItemList,
+  collectionPageSchema,
+  faqPageSchema,
+} from "@/lib/seo/schema";
 import {
   getMedicineCategoryBySlug,
   getMedicineHref,
@@ -34,22 +44,32 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const locale = await getLocale();
-  const t = createT(locale);
   const { category: slug } = await params;
   const category = getMedicineCategoryBySlug(slug);
   if (!category) {
-    return pageMetadata(
-      t("meta.categoryNotFound"),
-      t("meta.categoryNotFoundDescription"),
-      "/",
+    return notFoundMetadata(await getLocale());
+  }
+  const localized = localizeMedicineCategory(category, locale);
+  const keywords = getMedicineCategoryKeywords(category.slug);
+  if (keywords) {
+    return categoryMetadata(
+      keywords,
+      `/ilaclar-asilar/${category.slug}`,
+      category.image,
+      localized.imageAlt ?? localized.name,
       locale,
     );
   }
-  const localized = localizeMedicineCategory(category, locale);
-  return pageMetadata(
-    localized.name,
-    localized.description,
+  return categoryMetadata(
+    {
+      primary: localized.name,
+      secondary: [],
+      seoTitle: localized.name,
+      seoDescription: localized.description,
+    },
     `/ilaclar-asilar/${category.slug}`,
+    category.image,
+    localized.imageAlt ?? localized.name,
     locale,
   );
 }
@@ -72,9 +92,34 @@ export default async function MedicineCategoryPage({ params }: PageProps) {
   const countLabel = t("common.productCount", {
     count: padCount(items.length),
   });
+  const seoContent = getMedicineCategorySeo(category.slug, locale);
+  const keywords = getMedicineCategoryKeywords(category.slug);
+  const breadcrumbItems = [
+    { label: t("nav.home"), href: "/" },
+    { label: t("nav.medicines"), href: "/ilaclar-asilar" },
+    { label: localizedCategory.name },
+  ];
+  const schemaItems = items.map((item) => ({
+    name: item.name,
+    url: getMedicineHref(item),
+  }));
 
   return (
     <>
+      <BreadcrumbSchema items={breadcrumbItems} />
+      <JsonLd
+        data={[
+          collectionPageSchema({
+            name: keywords?.seoTitle ?? localizedCategory.name,
+            description:
+              keywords?.seoDescription ?? localizedCategory.description,
+            path: `/ilaclar-asilar/${category.slug}`,
+            items: schemaItems,
+          }),
+          categoryMedicineItemList(category.slug),
+          ...(seoContent?.faq ? [faqPageSchema(seoContent.faq)] : []),
+        ]}
+      />
       <CategoryPageHero
         index={Math.max(categoryIndex, 0)}
         category={localizedCategory}
@@ -97,16 +142,10 @@ export default async function MedicineCategoryPage({ params }: PageProps) {
       />
       <section className="bg-white py-8 sm:py-14 lg:py-20">
         <Container>
-          <Breadcrumb
-            items={[
-              { label: t("nav.home"), href: "/" },
-              { label: t("nav.medicines"), href: "/ilaclar-asilar" },
-              { label: localizedCategory.name },
-            ]}
-          />
+          <Breadcrumb items={breadcrumbItems} />
           <div className="mb-8 flex items-baseline justify-between gap-4 sm:mb-10">
             <h2 className="text-[22px] tracking-[-0.03em] text-ink sm:text-[28px]">
-              {localizedCategory.name}
+              {t("medicinesPage.productListing")}
             </h2>
             <p className="shrink-0 text-[12px] font-medium uppercase tracking-[0.14em] text-muted">
               {countLabel}
@@ -126,6 +165,13 @@ export default async function MedicineCategoryPage({ params }: PageProps) {
           />
         </Container>
       </section>
+      {seoContent ? (
+        <CategorySeoBlock
+          content={seoContent}
+          relatedTitle={t("seo.relatedPages")}
+          faqTitle={t("seo.faqTitle")}
+        />
+      ) : null}
     </>
   );
 }

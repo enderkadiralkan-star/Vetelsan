@@ -12,17 +12,15 @@ import { DocumentsGallery } from "@/components/DocumentsGallery";
 import { FadeIn } from "@/components/FadeIn";
 import { getLocale } from "@/lib/i18n/locale";
 import { createT } from "@/lib/i18n/t";
-import { pageMetadata } from "@/lib/metadata";
+import { intentMetadata } from "@/lib/metadata";
+import { aboutKeywords } from "@/lib/seo/keywords";
 
 export async function generateMetadata() {
   const locale = await getLocale();
-  const t = createT(locale);
-  return pageMetadata(
-    t("meta.aboutTitle"),
-    t("meta.aboutDescription"),
-    "/hakkimizda",
-    locale,
-  );
+  return intentMetadata(aboutKeywords, "/hakkimizda", locale, {
+    ogImage: "/images/about/kafes-aparat-uretim-tesisi.jpg",
+    ogImageAlt: "Vetelsan üretim tesisi",
+  });
 }
 
 export default async function AboutPage() {

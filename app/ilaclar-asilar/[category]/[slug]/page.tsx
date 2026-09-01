@@ -8,13 +8,16 @@ import { MedicineLegalNotice } from "@/components/medicines/MedicineLegalNotice"
 import { MedicineProductVisual } from "@/components/medicines/MedicineProductVisual";
 import { MedicineSpecs } from "@/components/medicines/MedicineSpecs";
 import { RelatedMedicineProducts } from "@/components/medicines/RelatedMedicineProducts";
+import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
+import { JsonLd } from "@/components/seo/JsonLd";
 import {
   localizeMedicine,
   localizeMedicineCategory,
 } from "@/lib/i18n/content";
 import { getLocale } from "@/lib/i18n/locale";
 import { createT } from "@/lib/i18n/t";
-import { pageMetadata } from "@/lib/metadata";
+import { notFoundMetadata, productMetadata } from "@/lib/metadata";
+import { medicineProductSchema } from "@/lib/seo/schema";
 import {
   getMedicineBySlug,
   getMedicineCategoryBySlug,
@@ -38,22 +41,17 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const locale = await getLocale();
-  const t = createT(locale);
   const { slug } = await params;
   const medicine = getMedicineBySlug(slug);
   if (!medicine) {
-    return pageMetadata(
-      t("meta.productNotFound"),
-      t("meta.productNotFoundDescription"),
-      "/",
-      locale,
-    );
+    return notFoundMetadata(locale);
   }
   const localized = localizeMedicine(medicine, locale);
-  return pageMetadata(
+  return productMetadata(
     localized.name,
     localized.shortDescription,
     `/ilaclar-asilar/${medicine.categorySlug}/${medicine.slug}`,
+    medicine.image,
     locale,
   );
 }
@@ -73,22 +71,26 @@ export default async function MedicineDetailPage({ params }: PageProps) {
   const localizedMedicine = localizeMedicine(medicine, locale);
   const related = getMedicinesByCategory(category.slug)
     .filter((item) => item.slug !== medicine.slug)
+    .slice(0, 4)
     .map((item) => localizeMedicine(item, locale));
+  const breadcrumbItems = [
+    { label: t("nav.home"), href: "/" },
+    { label: t("nav.medicines"), href: "/ilaclar-asilar" },
+    {
+      label: localizedCategory.name,
+      href: `/ilaclar-asilar/${category.slug}`,
+    },
+    { label: localizedMedicine.name },
+  ];
 
   return (
     <section className="bg-white py-6 sm:py-10 lg:py-12">
+      <BreadcrumbSchema items={breadcrumbItems} />
+      <JsonLd
+        data={medicineProductSchema(localizedMedicine, localizedCategory.name)}
+      />
       <Container>
-        <Breadcrumb
-          items={[
-            { label: t("nav.home"), href: "/" },
-            { label: t("nav.medicines"), href: "/ilaclar-asilar" },
-            {
-              label: localizedCategory.name,
-              href: `/ilaclar-asilar/${category.slug}`,
-            },
-            { label: localizedMedicine.name },
-          ]}
-        />
+        <Breadcrumb items={breadcrumbItems} />
         <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,0.55fr)_minmax(0,0.45fr)] lg:gap-14 xl:gap-16">
           <MedicineProductVisual
             src={localizedMedicine.image}

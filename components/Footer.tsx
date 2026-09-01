@@ -6,8 +6,13 @@ import { LanguageSwitcher } from "./LanguageSwitcher";
 import { Logo } from "./Logo";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 import { useI18n } from "@/components/i18n/LanguageProvider";
-import { navItems } from "@/lib/i18n/content";
+import {
+  localizeCategories,
+  localizeMedicineCategories,
+  navItems,
+} from "@/lib/i18n/content";
 import { contact, site, socialLinks, whatsapp } from "@/lib/site";
+import { splitCategoryName } from "@/lib/utils";
 
 function InstagramIcon() {
   return (
@@ -44,20 +49,23 @@ const socialIcons = {
 const quickLinks = navItems.filter((item) => item.href !== "/");
 
 export function Footer() {
-  const { t } = useI18n();
+  const { locale, t } = useI18n();
   const year = new Date().getFullYear();
+  const localizedProducts = localizeCategories(locale);
+  const localizedMedicines = localizeMedicineCategories(locale);
 
   return (
     <footer className="bg-night text-white">
       <Container className="py-12 sm:py-14 lg:py-16">
-        <div className="flex flex-col gap-10 md:grid md:grid-cols-2 lg:grid-cols-3 lg:gap-16">
-          <div>
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 xl:gap-10">
+          <div className="sm:col-span-2 xl:col-span-1">
             <Logo />
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/50">
               {t("footer.blurb", { legalName: site.legalName, year: site.foundedYear })}
             </p>
           </div>
-          <div className="order-3 md:order-2">
+
+          <div>
             <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/35">
               {t("footer.pages")}
             </p>
@@ -74,7 +82,60 @@ export function Footer() {
               ))}
             </ul>
           </div>
-          <div className="order-2 md:order-3">
+
+          <div>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/35">
+              {t("footer.products")}
+            </p>
+            <ul className="mt-5 space-y-2.5">
+              <li>
+                <Link
+                  href="/urunler"
+                  className="inline-flex min-h-10 items-center text-sm text-white/65 transition-colors duration-200 hover:text-white"
+                >
+                  {t("nav.products")}
+                </Link>
+              </li>
+              {localizedProducts.map((category) => (
+                <li key={category.slug}>
+                  <Link
+                    href={category.href}
+                    className="inline-flex min-h-10 items-center text-sm text-white/55 transition-colors duration-200 hover:text-white"
+                  >
+                    {splitCategoryName(category.name).title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/35">
+              {t("footer.medicines")}
+            </p>
+            <ul className="mt-5 space-y-2.5">
+              <li>
+                <Link
+                  href="/ilaclar-asilar"
+                  className="inline-flex min-h-10 items-center text-sm text-white/65 transition-colors duration-200 hover:text-white"
+                >
+                  {t("nav.medicines")}
+                </Link>
+              </li>
+              {localizedMedicines.map((category) => (
+                <li key={category.slug}>
+                  <Link
+                    href={category.href}
+                    className="inline-flex min-h-10 items-center text-sm text-white/55 transition-colors duration-200 hover:text-white"
+                  >
+                    {category.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="sm:col-span-2 xl:col-span-1">
             <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/35">
               {t("footer.contact")}
             </p>
