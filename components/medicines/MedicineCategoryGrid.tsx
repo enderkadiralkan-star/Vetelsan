@@ -34,12 +34,13 @@ export function MedicineCategoryCard({
         alt={category.imageAlt}
         fill
         priority={featured}
+        quality={93}
         sizes={
           featured
             ? "(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 66vw"
             : "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
         }
-        className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+        className="object-cover object-[72%_center]"
       />
       <div
         className="absolute inset-0 bg-gradient-to-t from-night via-night/50 to-night/15 transition-colors duration-300 group-hover:from-night/95"

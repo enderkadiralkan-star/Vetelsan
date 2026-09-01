@@ -37,12 +37,18 @@ export function CatalogCategoryCard({
         src={category.image}
         alt={category.imageAlt}
         fill
+        priority={featured}
+        quality={93}
         sizes={
           featured
             ? "(max-width: 1023px) 100vw, 50vw"
             : "(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"
         }
-        className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+        className={cn(
+          category.imageContain
+            ? "object-contain bg-studio p-6 sm:p-8"
+            : "object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100",
+        )}
       />
       <div
         className="absolute inset-0 bg-[linear-gradient(to_top,rgba(23,25,27,0.55)_0%,rgba(23,25,27,0.12)_52%,rgba(23,25,27,0.04)_100%)]"

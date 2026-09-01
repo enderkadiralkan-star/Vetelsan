@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Container } from "../Container";
 import { FadeIn } from "../FadeIn";
 import type { ProductCategory } from "@/lib/types";
-import { padIndex, splitCategoryName } from "@/lib/utils";
+import { cn, padIndex, splitCategoryName } from "@/lib/utils";
 
 type CategoryHeroProps = {
   index: number;
@@ -36,8 +36,13 @@ export function CategoryHero({ index, category }: CategoryHeroProps) {
               alt={category.imageAlt}
               fill
               priority
+              quality={93}
               sizes="(max-width: 1023px) 100vw, 42vw"
-              className="object-cover"
+              className={cn(
+                category.imageContain
+                  ? "object-contain p-8 sm:p-12 lg:p-16"
+                  : "object-cover object-center",
+              )}
             />
             <div
               className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_top,rgba(17,17,17,0.18)_0%,transparent_45%)]"

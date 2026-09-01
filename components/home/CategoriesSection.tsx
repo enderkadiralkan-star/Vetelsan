@@ -7,7 +7,7 @@ import { localizeCategories } from "@/lib/i18n/content";
 import { getLocale } from "@/lib/i18n/locale";
 import { createT } from "@/lib/i18n/t";
 import { getProductCountByCategory, products } from "@/lib/products";
-import { cn, padCount } from "@/lib/utils";
+import { padCount } from "@/lib/utils";
 
 export async function CategoriesSection() {
   const locale = await getLocale();
@@ -43,31 +43,20 @@ export async function CategoriesSection() {
           />
         </FadeIn>
 
-        <div className="section-stack grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-4 min-[1200px]:grid-cols-12 min-[1200px]:gap-5">
-          {categories.map((category, index) => {
-            const featured = index < 2;
-            return (
-              <FadeIn
-                key={category.slug}
-                delay={Math.min(index, 5) * 0.05}
-                className={cn(
-                  featured
-                    ? "md:col-span-2 min-[1200px]:col-span-6"
-                    : "min-[1200px]:col-span-4",
-                )}
-              >
-                <HomeCategoryCard
-                  category={category}
-                  index={index}
-                  featured={featured}
-                  countLabel={t("common.productCount", {
-                    count: padCount(getProductCountByCategory(category.slug)),
-                  })}
-                  exploreLabel={t("common.explore")}
-                />
-              </FadeIn>
-            );
-          })}
+        <div className="section-stack grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4 lg:gap-5">
+          {categories.map((category, index) => (
+            <FadeIn key={category.slug} delay={Math.min(index, 5) * 0.04}>
+              <HomeCategoryCard
+                category={category}
+                index={index}
+                priority={index < 4}
+                countLabel={t("common.productCount", {
+                  count: padCount(getProductCountByCategory(category.slug)),
+                })}
+                exploreLabel={t("common.explore")}
+              />
+            </FadeIn>
+          ))}
         </div>
 
         <FadeIn className="mt-10 flex flex-col gap-4 border-t border-line pt-8 sm:flex-row sm:items-center sm:justify-between lg:mt-16">

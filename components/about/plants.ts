@@ -1,30 +1,35 @@
-import { productCategories } from "@/lib/categories";
-
-const bySlug = (slug: string) => {
-  const category = productCategories.find((item) => item.slug === slug);
-  if (!category) {
-    throw new Error(`Missing category image for ${slug}`);
-  }
-  return { image: category.image, imageAlt: category.imageAlt, href: category.href };
-};
-
 export const aboutPlants = [
   {
     index: 0,
     titleKey: "aboutPage.facility1Title",
     textKey: "aboutPage.facility1Text",
-    ...bySlug("yakalama-kafesleri"),
+    imageAltKey: "aboutPage.facility1ImageAlt",
+    image: "/images/about/kafes-aparat-uretim-tesisi.jpg",
+    href: "/urunler/yakalama-kafesleri",
   },
   {
     index: 1,
     titleKey: "aboutPage.facility2Title",
     textKey: "aboutPage.facility2Text",
-    ...bySlug("enjektorler"),
+    imageAltKey: "aboutPage.facility2ImageAlt",
+    image: "/images/about/enjektor-uretim-tesisi.jpg",
+    href: "/urunler/enjektorler",
   },
   {
     index: 2,
     titleKey: "aboutPage.facility3Title",
     textKey: "aboutPage.facility3Text",
-    ...bySlug("aticilar"),
+    imageAltKey: "aboutPage.facility3ImageAlt",
+    image: "/images/about/tabanca-tufek-uretim-tesisi.jpg",
+    href: "/urunler/aticilar",
   },
 ] as const;
+
+export type AboutPlant = (typeof aboutPlants)[number];
+
+export function getAboutPlantImageAlt(
+  plant: AboutPlant,
+  t: (key: string) => string,
+): string {
+  return t(plant.imageAltKey);
+}

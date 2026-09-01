@@ -36,6 +36,7 @@ export type VisualCategory = {
   icon: string;
   image: string;
   imageAlt: string;
+  imageContain?: boolean;
   featured?: boolean;
 };
 

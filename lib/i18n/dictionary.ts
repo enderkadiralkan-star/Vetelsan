@@ -147,6 +147,7 @@ const tr = {
     catalogTitle: "Ürün Kataloğu",
     catalogLead:
       "Vetelsan’ın veteriner sağlık, saha ve yakalama çözümlerini ürün gruplarına göre keşfedin.",
+    stats: "{categories} kategori · {products} ürün",
     groupsLabel: "Ürün Grubu",
     productsLabel: "Ürün",
     exploreGroups: "Tüm ürün gruplarını keşfedin",
@@ -212,15 +213,21 @@ const tr = {
       "Veteriner ecza deposu ruhsatımız, satıcılık bayilik izin belgemiz ve marka tescilimiz.",
     productionKicker: "Üretim",
     productionTitle: "Kendi tesislerimizde üretim",
-    facility1Title: "Kafes ve aparat üretim tesisi",
+    facility1Title: "Kafes ve Aparat Üretim Tesisimiz",
     facility1Text:
       "Yakalama kafesleri ve saha aparatlarının üretildiği tesisimiz, dayanıklı ve kullanışlı ekipman ihtiyacına cevap verir.",
-    facility2Title: "Enjektör üretim tesisi",
+    facility1ImageAlt:
+      "Kafes ve aparat üretim tesisimiz — atölye rafı ve üretim malzemeleri",
+    facility2Title: "Enjektör Üretim Tesisimiz",
     facility2Text:
       "Fünyeli ve saha enjektörlerinin üretildiği hatlarımız, Vetelsan’ın kendi imalat gücünün temelini oluşturur.",
-    facility3Title: "Tabanca ve tüfek üretim tesisi",
+    facility2ImageAlt:
+      "Enjektör üretim tesisimiz — plastik enjeksiyon makineleri ve üretim hattı",
+    facility3Title: "Tabanca-Tüfek Üretim Tesisimiz",
     facility3Text:
       "Atıcı sistemlerin üretildiği tesisimiz, uzaktan müdahale gerektiren operasyonlar için özel çözümler geliştirir.",
+    facility3ImageAlt:
+      "Tabanca-tüfek üretim tesisimiz — CNC tezgahları ve metal işleme atölyesi",
     heroLead:
       "1996’dan beri veteriner sağlık alanında güvenilir çözüm ortağınız.",
     rootsKicker: "Köklü bir geçmiş",
@@ -470,6 +477,7 @@ const en: { [K in keyof typeof tr]: { [P in keyof (typeof tr)[K]]: string } } = 
     catalogTitle: "Product Catalog",
     catalogLead:
       "Explore Vetelsan’s veterinary health, field, and capture solutions by product group.",
+    stats: "{categories} categories · {products} products",
     groupsLabel: "Product Groups",
     productsLabel: "Products",
     exploreGroups: "Explore all product groups",
@@ -534,15 +542,21 @@ const en: { [K in keyof typeof tr]: { [P in keyof (typeof tr)[K]]: string } } = 
       "Our veterinary pharmaceutical warehouse license, dealership permit, and trademark registration.",
     productionKicker: "Manufacturing",
     productionTitle: "Manufactured in our own facilities",
-    facility1Title: "Cage and apparatus plant",
+    facility1Title: "Our Cage and Apparatus Production Facility",
     facility1Text:
       "Our plant producing capture cages and field apparatus meets the need for durable, practical equipment.",
-    facility2Title: "Syringe plant",
+    facility1ImageAlt:
+      "Our cage and apparatus production facility — workshop shelving and manufacturing supplies",
+    facility2Title: "Our Injector Production Facility",
     facility2Text:
       "Our lines producing dart and field syringes form the foundation of Vetelsan’s in-house manufacturing.",
-    facility3Title: "Pistol and rifle plant",
+    facility2ImageAlt:
+      "Our injector production facility — plastic injection molding machines and production line",
+    facility3Title: "Our Pistol and Rifle Production Facility",
     facility3Text:
       "Our plant producing projector systems develops specialized solutions for operations that require remote intervention.",
+    facility3ImageAlt:
+      "Our pistol and rifle production facility — CNC machines and metalworking workshop",
     heroLead: "Your trusted partner in veterinary health since 1996.",
     rootsKicker: "A deep-rooted history",
     productionHeadline: "Our own manufacture.\nReal solutions in the field.",

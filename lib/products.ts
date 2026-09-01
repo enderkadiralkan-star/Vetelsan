@@ -102,10 +102,12 @@ export const products: Product[] = [
     name: "Fünyeli Enjektör",
     categorySlug: "enjektorler",
     shortDescription:
-      "Parçalanmaya dayanıklı, 2.5–3 ml ilaç hazneli fünyeli enjektör.",
+      "Kartuş tabanca ve tüfekle atılabilen, 2.5–3 ml ilaç hazneli fünyeli enjektör. Boş gönderilir.",
     description:
-      "Arka yönlendirici vidalı kanatçık sistemi ve kullanım kolaylığı sağlayan kapsül-kartuş gövdesi ile üretilmiştir. Kullanım sırasında parçalanmaya ve dağılmaya dayanıklı birinci sınıf malzemeden imal edilir. İlaç haznesi 2.5–3 ml’dir. Ürün boş vaziyette gönderilir; doz, kullanılacak hayvanın cinsi ve ağırlığına göre enjeksiyon şırıngası ile ayarlanır. Tamamen kendi üretimimizdir.",
-    image: "/images/categories/enjektorler.jpg",
+      "Arka yönlendirici vidalı kanatçık sistem, kullanım kolaylığı sağlayan kapsül ve kartuş gövdeye monte edilmiştir. Kullanım esnasında parçalanmaya ve dağılmaya dayanıklı birinci sınıf malzemeden üretilmiştir.\n\nArkada bulunan kartuşa tabancanın iğnesinin vurmasıyla ateşleme yapılır ve hedefe temas ettiğinde içerisindeki solüsyon zerk olur.\n\nİçinde ilaç yoktur; boş vaziyette gönderilir. Enjektörü alan kişinin, koyacağı ilacı göndermiş olduğumuz enjeksiyon şırıngasına (kullanacağı hayvanın cinsi, ağırlığı, boyu vb. göre ilaç dozu ayarlanır) çekerek fünyeli enjektörün ucundaki kırmızı koruyucuyu çıkarıp metal iğne ucundaki delikten fünyeli enjektörün içine basması gerekir. Böylelikle fünyeli enjektörü almış olduğunuz tabanca veya tüfeğe koyarak atış yapabilirsiniz.\n\nTamamen kendi üretimimizdir.",
+    image: "/images/products/enjektorler/funyeli-enjektor.png",
+    gallery: ["/images/products/enjektorler/funyeli-enjektor-2.png"],
+    imageContain: true,
     featured: true,
     specs: [
       { label: "İlaç haznesi", value: "2.5 – 3 ml" },
@@ -115,25 +117,37 @@ export const products: Product[] = [
   },
   {
     slug: "uflemeli-enjektor",
-    name: "Üflemeli Enjektör (Tüf Tüf)",
+    name: "Üflemeli Enjektör (Tüf Tüf Enjektörü)",
     categorySlug: "enjektorler",
     shortDescription:
-      "Yakın mesafe müdahaleler için üflemeli enjektör sistemi.",
+      "Üfleme borusu ile atılabilen, 3.5 ml ilaç hazneli, tekrar kullanılabilir enjektör.",
     description:
-      "Başıboş ve kaçan hayvanların yakalanmasında kullanılan üflemeli (tüf tüf) enjektör. Yakın mesafe saha kullanımına uygun, pratik ve kontrollü uygulama sunar.",
-    image: "/images/categories/enjektorler.jpg",
+      "Üfleme borusu ile atılabilmektedir. Enjektör atıcı tabanca ve tüfekte kullanılmaz.\n\nMika malzemeden yapılmış olan ve kırılmalara karşı dayanıklı malzemesi sayesinde tek kullanımlık değildir; birçok kez tekrar kullanılabilir. Arkasındaki renkli tüyler sayesinde üfleme esnasında ekstra uzağa gidebilmektedir.",
+    image: "/images/products/enjektorler/uflemeli-enjektor.png",
+    imageContain: true,
     featured: true,
-    specs: [{ label: "Uygulama", value: "Yakın mesafe saha kullanımı" }],
+    specs: [
+      { label: "İlaç haznesi", value: "3.5 ml" },
+      { label: "Kullanım", value: "Üfleme borusu ile" },
+      { label: "Malzeme", value: "Mika, kırılmaya dayanıklı" },
+    ],
   },
   {
     slug: "havali-tufek-enjektoru",
     name: "Havalı Tüfek Enjektörü",
     categorySlug: "enjektorler",
     shortDescription:
-      "Havalı tüfek sistemleriyle uyumlu saha enjektörü.",
+      "Havalı uzun menzilli tüfek için üretilmiş, 5 ml ilaç hazneli enjektör.",
     description:
-      "Havalı tüfek sistemleriyle birlikte kullanılan enjektör çözümü. Uzaktan müdahale gereken saha operasyonlarında güvenli enjeksiyon desteği sağlar.",
-    image: "/images/categories/aticilar.jpg",
+      "Havalı uzun menzilli tüfek için üretilmiştir. Birinci sınıf ve kaliteli plastik malzemeden üretilmiştir; kırılmalara karşı ekstra dayanıklıdır. İğne kısmı çelik ve alüminyum karışımıdır.\n\nYalnızca havalı enjektör tüfeği ile atılabilmektedir.",
+    image: "/images/products/enjektorler/havali-tufek-enjektoru.png",
+    gallery: ["/images/products/enjektorler/havali-tufek-enjektoru-2.png"],
+    imageContain: true,
+    specs: [
+      { label: "İlaç haznesi", value: "5 ml" },
+      { label: "Kullanım", value: "Yalnızca havalı enjektör tüfeği" },
+      { label: "Malzeme", value: "Birinci sınıf plastik gövde, çelik-alüminyum iğne" },
+    ],
   },
   {
     slug: "muayene-eldiveni",
@@ -425,71 +439,254 @@ export const products: Product[] = [
     slug: "kopek-agizligi",
     name: "Köpek Ağızlığı",
     categorySlug: "diger-urunler",
-    shortDescription: "Güvenli müdahale ve sevkiyat için köpek ağızlıkları.",
+    shortDescription:
+      "Yakalama, rehabilitasyon ve operasyon sırasında köpeklerin ısırmasını önlemek için kullanılır. Farklı ebatları mevcuttur.",
     description:
-      "Klinik ve saha kullanımına uygun köpek ağızlıkları. Güvenli muayene, tedavi ve nakil süreçlerinde hayvan ve ekip güvenliğini destekler.",
-    image: "/images/categories/diger.jpg",
+      "Yakalama sırasında ve rehabilitasyon merkezlerinde, operasyon sırasında veya müşahade altına alınan köpeklerin ısırmasını önlemek amacıyla kullanılır.\n\nFarklı ebatları mevcuttur.",
+    image: "/images/products/diger-urunler/kopek-agizligi.png",
+    gallery: [
+      "/images/products/diger-urunler/kopek-agizligi-2.png",
+      "/images/products/diger-urunler/kopek-agizligi-3.png",
+    ],
+    imageContain: true,
   },
   {
-    slug: "tedavi-sonrasi-yakalik",
-    name: "Tedavi Sonrası Yakalık",
+    slug: "kedi-kopek-yakaligi",
+    name: "Kedi-Köpek Yakalığı",
     categorySlug: "diger-urunler",
     shortDescription:
-      "Kedi ve köpekler için tedavi sonrası koruyucu yakalık.",
+      "Operasyon veya tedavi sonrası opere edilen bölgeye ulaşmayı önler. Farklı ebatları mevcuttur.",
     description:
-      "Operasyon ve tedavi sonrası dönemde hayvanın yara bölgesine ulaşmasını önleyen koruyucu yakalık çözümleri.",
-    image: "/images/categories/diger.jpg",
+      "Operasyon sonrası veya tedavi sonrası kedi-köpeklerin opere edilen bölgeye ulaşmaması amacıyla kullanılır.\n\nFarklı ebatları mevcuttur.",
+    image: "/images/products/diger-urunler/kedi-kopek-yakaligi.png",
+    gallery: [
+      "/images/products/diger-urunler/kedi-kopek-yakaligi-2.png",
+      "/images/products/diger-urunler/kedi-kopek-yakaligi-3.png",
+    ],
+    imageContain: true,
   },
   {
-    slug: "kulak-kupesi-isaretleme",
-    name: "Kulak Küpesi ve İşaretleme",
+    slug: "kedi-kopek-sulugu",
+    name: "Kedi-Köpek Suluğu",
+    categorySlug: "diger-urunler",
+    shortDescription:
+      "Sokak hayvanları için şamandıralı, 2 litrelik otomatik suluk. Kolay montaj.",
+    description:
+      "Sokakta yaşayan hayvan dostlarımızın su ihtiyaçlarını giderebilmek amacıyla üretilmiştir.\n\nŞamandıralı ve 2 litre su hacimlidir. Kolay montelenme imkânıyla her yerde kullanılabilir.",
+    image: "/images/products/diger-urunler/kedi-kopek-sulugu.png",
+    imageContain: true,
+    specs: [
+      { label: "Hacim", value: "2 litre" },
+      { label: "Sistem", value: "Şamandıralı otomatik dolum" },
+      { label: "Montaj", value: "Kolay montaj, saha kullanımına uygun" },
+    ],
+  },
+  {
+    slug: "kulak-kupesi",
+    name: "Kulak Küpesi",
     categorySlug: "isaretleme-numaralandirma",
     shortDescription:
-      "Sokak ve besi hayvanları için kimliklendirme ekipmanları.",
+      "Köpek ve besi hayvanlarını işaretleme ve numaralandırma için kulak küpesi. Farklı renk ve modeller.",
     description:
-      "Hayvan takibinde kullanılan kulak küpeleri ve işaretleme ekipmanları. Sokak hayvanları ile besi hayvanlarının numaralandırılması ve izlenmesi için tasarlanmıştır.",
-    image: "/images/categories/isaretleme.jpg",
+      "Köpekleri ve besi hayvanlarını işaretleme ve numaralandırma işleminde kullanılır.\n\nFarklı renk ve modelleri mevcut olup, isteğinize göre logo ve numara uygulanabilir.",
+    image: "/images/products/isaretleme/kulak-kupesi.png",
+    imageContain: true,
     featured: true,
   },
   {
-    slug: "kedi-kopek-mamasi",
-    name: "Kedi ve Köpek Mamaları",
-    categorySlug: "mamalar",
-    shortDescription: "Evcil hayvanlar için mama ve beslenme ürünleri.",
-    description:
-      "Kedi ve köpekler için formüle edilmiş mama çeşitleri. Klinik ve bakım süreçlerini destekleyen beslenme çözümleri sunar.",
-    image: "/images/categories/mamalar.jpg",
+    slug: "kupe-tatbik-pensi",
+    name: "Küpe Tatbik Pensi",
+    categorySlug: "isaretleme-numaralandirma",
+    shortDescription: "Kulak küpesi uygulama pensi.",
+    description: "Kulak küpesi uygulama pensi olarak üretilmiştir.",
+    image: "/images/products/isaretleme/kupe-tatbik-pensi.png",
+    imageContain: true,
   },
   {
-    slug: "yakalama-aparati",
-    name: "Yakalama Aparatı",
+    slug: "mikrocip",
+    name: "Mikroçip",
+    categorySlug: "isaretleme-numaralandirma",
+    shortDescription:
+      "Evcil hayvan kimliklendirme için pirinç tanesi büyüklüğünde implant mikroçip.",
+    description:
+      "Evcil hayvanın yerini her an tespit etmek amacıyla kullanılır. Çok küçük olan mikroçip yaklaşık olarak pirinç tanesi büyüklüğündedir.\n\nHayvanın iki omuz kemiği arasına deri altına implante edilmek suretiyle kullanılır.\n\nHer çipin, bir mikroçip okuyucu kullanmak suretiyle geliştirdiği ve algıladığı tıpkı parmak izi gibi kendine ait numarası bulunmaktadır. Bu sayede hayvan ve hayvan sahibi hakkındaki ayrıntılara kolayca ulaşılabilmektedir.",
+    image: "/images/products/isaretleme/mikrocip.png",
+    imageContain: true,
+  },
+  {
+    slug: "mikrocip-okuyucu",
+    name: "Mikroçip Okuyucu",
+    categorySlug: "isaretleme-numaralandirma",
+    shortDescription:
+      "Hayvana takılan mikroçipin okunması ve yerinin tespiti için okuyucu cihaz.",
+    description:
+      "Hayvana takılan mikroçipin okunması, yerinin tespit edilmesi ve ayrıntılı bilgi sahibi olmak amacıyla kullanılır.",
+    image: "/images/products/isaretleme/mikrocip-okuyucu.png",
+    imageContain: true,
+  },
+  {
+    slug: "kedi-mamasi",
+    name: "Kedi Maması",
+    categorySlug: "mamalar",
+    shortDescription:
+      "Birinci sınıf, piyasada kabul görmüş markalardan kedi maması. Kuru ve yaş mama tedariki.",
+    description:
+      "Kediler için mama tedariği de firmamız tarafından karşılanmaktadır. Dilediğiniz marka ve boyutta kedi maması bulunur.\n\nSatmış olduğumuz kedi mamaları birinci sınıf ürünler ve piyasada kabul görmüş markalardır.\n\nİstediğiniz besin değerleri ve tatlarda (kuzu etli-pirinçli, somonlu, tavuklu vb.) bulunmaktadır.\n\nKediler için yaş mama da tedarik etmekteyiz.",
+    image: "/images/products/mamalar/kedi-mamasi.png",
+    imageContain: true,
+    featured: true,
+  },
+  {
+    slug: "kopek-mamasi",
+    name: "Köpek Maması",
+    categorySlug: "mamalar",
+    shortDescription:
+      "Birinci sınıf, piyasada kabul görmüş markalardan köpek maması. Farklı marka ve boyut seçenekleri.",
+    description:
+      "Köpekler için mama tedariği de firmamız tarafından karşılanmaktadır. Dilediğiniz marka ve boyutta köpek maması bulunur.\n\nSatmış olduğumuz köpek mamaları birinci sınıf ürünler ve piyasada kabul görmüş markalardır.\n\nİstediğiniz besin değerleri ve tatlarda (kuzu etli-pirinçli, somonlu, tavuklu vb.) bulunmaktadır.",
+    image: "/images/products/mamalar/kopek-mamasi.png",
+    imageContain: true,
+  },
+  {
+    slug: "kopek-yakalama-aparati",
+    name: "Köpek Yakalama Aparatı",
     categorySlug: "yakalama-aparatlari",
     shortDescription:
-      "Kedi ve köpeklerin güvenli yakalanması ve sevki için aparatlar.",
+      "Saldırgan köpekler için 150 cm uzunlukta, güvenli yakalama ve sevk aparatı.",
     description:
-      "Kedi ve köpeklerin yakalanıp bir yerden bir yere sevki için kullanılan yakalama aparatları. Saha ekipleri ve klinik personeli için kontrollü kullanım sağlar.",
-    image: "/images/categories/aparatlari.jpg",
+      "Köpek yakalama ve sevk amaçlı kullanılır. Yanına yaklaşılamayan ve saldırgan köpekler için uzunluğu sayesinde güvenli bir yakalama sağlar.\n\nKullanımı oldukça kolaydır. Halka, köpeğin boynuna geçirildikten sonra alttaki topun çekilmesiyle hayvan kıskaca alınır.\n\nÇelik alaşımlı, kesinlikle kırılmayan bir malzemeden üretilmiştir. Bu sayede oldukça güvenlidir.\n\nTamamen kendi üretimimizdir.",
+    image: "/images/products/yakalama-aparatlari/kopek-yakalama-aparati.png",
+    gallery: ["/images/products/yakalama-aparatlari/kopek-yakalama-aparati-2.png"],
+    imageContain: true,
     featured: true,
+    specs: [
+      { label: "Uzunluk", value: "150 cm" },
+      { label: "Halka genişliği", value: "70 cm" },
+      { label: "Üretim", value: "Vetelsan" },
+    ],
   },
   {
-    slug: "tasinabilir-yakalama-kafesi",
-    name: "Taşınabilir Yakalama Kafesi",
+    slug: "kedi-yakalama-filesi",
+    name: "Kedi Yakalama Filesi",
+    categorySlug: "yakalama-aparatlari",
+    shortDescription:
+      "2,5 mm polyester fileli, 120 cm saplı kedi yakalama filesi. Vetelsan üretimi.",
+    description:
+      "Kedi yakalama amaçlı kullanılır. Sağlam ve yırtılmaz 2,5 mm polyester ipten üretilmiştir; bu sayede yakalanan kedi fileye zarar veremez.\n\nGövde kırılmaz ve esnek plastik malzemeden üretilmiştir. Kolay tutuş ve esneklik sağlar.\n\nTamamen kendi üretimimizdir.",
+    image: "/images/products/yakalama-aparatlari/kedi-yakalama-filesi.png",
+    gallery: ["/images/products/yakalama-aparatlari/kedi-yakalama-filesi-2.png"],
+    imageContain: true,
+    specs: [
+      { label: "Uzunluk", value: "120 cm" },
+      { label: "Halka çapı", value: "60 cm" },
+      { label: "File derinliği", value: "90 cm" },
+      { label: "Üretim", value: "Vetelsan" },
+    ],
+  },
+  {
+    slug: "kedi-yakalama-masasi",
+    name: "Kedi Yakalama Maşası",
+    categorySlug: "yakalama-aparatlari",
+    shortDescription:
+      "Ortopedik kıskaçlı ve fenerli kedi yakalama maşası. 90 ve 160 cm boy seçenekleri.",
+    description:
+      "Kedi yakalamak ve sevk etmek amacıyla kullanılır. Ucundaki hareket ettirilebilir ortopedik kıskaç sayesinde kediye yaklaşmadan ve kesinlikle zarar vermeden boynundan yakalanır.\n\nKıskacın hemen üstünde takılı olan fener, gece kullanımı için kolaylık sağlar.\n\nMetal gövde ile kırılma riski ortadan kalkmıştır.\n\nİki farklı boy uzunluğunda üretilmiştir.",
+    image: "/images/products/yakalama-aparatlari/kedi-yakalama-masasi.png",
+    imageContain: true,
+    specs: [{ label: "Uzunluk", value: "90 cm – 160 cm" }],
+  },
+  {
+    slug: "yilan-yakalama-masasi",
+    name: "Yılan Yakalama Maşası",
+    categorySlug: "yakalama-aparatlari",
+    shortDescription:
+      "Fenerli, hareketli kıskaçlı yılan yakalama maşası. 90 ve 160 cm boy seçenekleri.",
+    description:
+      "Yılanları yakalama amacıyla kullanılır. Ucundaki hareket ettirilebilir kıskaç sayesinde yılana yaklaşmadan güvenli bir şekilde yakalama sağlanır.\n\nKıskacın hemen üstünde takılı olan fener, gece kullanımı için kolaylık sağlar.\n\nMetal gövde ile kırılma riski ortadan kalkmıştır.\n\nİki farklı boy uzunluğunda üretilmiştir.",
+    image: "/images/products/yakalama-aparatlari/yilan-yakalama-masasi.png",
+    imageContain: true,
+    specs: [{ label: "Uzunluk", value: "90 cm – 160 cm" }],
+  },
+  {
+    slug: "yilan-tasima-torbasi",
+    name: "Yılan Taşıma Torbası",
+    categorySlug: "yakalama-aparatlari",
+    shortDescription:
+      "Yakalanan yılanların güvenli taşınması için maşa uçlu taşıma torbası.",
+    description:
+      "Yılan yakalama maşası veya başka bir yöntem ile yakalanmış olan yılanları bir yerden bir yere taşımak maksatlı üretilmiştir. Maşanın ucundaki torba, bir yılanın sığabileceği kadar geniş ve çıkamayacağı kadar sıkıdır.\n\nYılan torbaya koyulduktan sonra torbanın ipleri sayesinde torba burgu haline getirilir ve yılanın kaçması imkânsız hale gelir.",
+    image: "/images/products/yakalama-aparatlari/yilan-tasima-torbasi.png",
+    imageContain: true,
+  },
+  {
+    slug: "kedi-tutma-eldiveni",
+    name: "Kedi Tutma Eldiveni",
+    categorySlug: "yakalama-aparatlari",
+    shortDescription:
+      "2 kat amniyet deri, dirseğe kadar uzanan kedi tutma eldiveni.",
+    description:
+      "Kedi yakalama ve tutma amaçlı üretilmiştir. Kedilere müdahale gereken durumlarda (yakalama, enjeksiyon, tedavi vb.) kedinin insan elini tırmalaması ve ısırması gibi zarar verici durumların önüne geçmektedir.\n\n2 kat amniyet deriden üretilmiştir. Kedinin tırnağı ve dişi kesinlikle insan eline temas etmez.\n\nDirseğin 3 cm aşağısına kadar gelir; bu sayede kollar da korunmuş olur.",
+    image: "/images/products/yakalama-aparatlari/kedi-tutma-eldiveni.png",
+    gallery: [
+      "/images/products/yakalama-aparatlari/kedi-tutma-eldiveni-2.png",
+      "/images/products/yakalama-aparatlari/kedi-tutma-eldiveni-3.png",
+    ],
+    imageContain: true,
+  },
+  {
+    slug: "kopek-yakalama-kafesi",
+    name: "Köpek Yakalama Kafesi",
     categorySlug: "yakalama-kafesleri",
     shortDescription:
-      "Stressiz yakalama ve nakil için taşınabilir kafes sistemi.",
+      "Tuzaklı, katlanabilir köpek yakalama kafesi. 4–6 mm paslanmaz tel, Vetelsan üretimi.",
     description:
-      "Acil müdahale ve saha operasyonlarında kullanılan taşınabilir yakalama kafesleri. Hayvanın güvenli şekilde tutulması ve nakledilmesi için tasarlanmıştır.",
-    image: "/images/categories/kafesleri.jpg",
+      "Köpeklerin yakalanması ve taşınması amacıyla üretilmiştir. Köpeğin ilgisini çeken gıda materyali kurulan kafesin içine bırakılır ve tuzaklama bölmesine basan köpek, arka kapağın kapanması ile kafesten çıkamaz hale gelir.\n\n4 mm ve 6 mm paslanmaz telden imal edilmiştir. İşlem öncesi ve sonrası katlanabilir özelliği sayesinde fazla yer kaplamaz, kolay taşıma sağlar.\n\nTamamen kendi üretimimizdir.\n\nGerektiğinde sizlerin isteği ile farklı ölçülerde imal edilmektedir.",
+    image: "/images/products/yakalama-kafesleri/kopek-yakalama-kafesi.png",
+    imageContain: true,
     featured: true,
+    specs: [
+      { label: "En", value: "50 cm" },
+      { label: "Yükseklik", value: "75 cm" },
+      { label: "Uzunluk", value: "120 cm" },
+      { label: "Tel", value: "4 mm ve 6 mm paslanmaz" },
+      { label: "Üretim", value: "Vetelsan" },
+    ],
   },
   {
-    slug: "mudahale-kafesi",
-    name: "Müdahale Kafesi",
+    slug: "kedi-yakalama-kafesi",
+    name: "Kedi Yakalama Kafesi",
     categorySlug: "yakalama-kafesleri",
-    shortDescription: "Klinik ve saha müdahaleleri için yakalama kafesi.",
+    shortDescription:
+      "Tuzaklı kedi yakalama kafesi. 2–4 mm paslanmaz tel, Vetelsan üretimi.",
     description:
-      "Veteriner müdahale, muayene ve kısa süreli tutma ihtiyaçları için kullanılan yakalama kafesi. Dayanıklı gövde yapısıyla saha koşullarına uygundur.",
-    image: "/images/categories/kafesleri.jpg",
+      "Kedilerin yakalanması ve taşınması amacıyla üretilmiştir. Kedinin ilgisini çeken gıda materyali kurulan kafesin içine bırakılır ve tuzaklama bölmesine basan kedi, arka kapağın kapanması ile kafesten çıkamaz hale gelir.\n\n2 mm ve 4 mm paslanmaz telden imal edilmiştir.\n\nTamamen kendi üretimimizdir.\n\nGerektiğinde sizlerin isteği ile farklı ölçülerde imal edilmektedir.",
+    image: "/images/products/yakalama-kafesleri/kedi-yakalama-kafesi.png",
+    gallery: ["/images/products/yakalama-kafesleri/kedi-yakalama-kafesi-2.png"],
+    imageContain: true,
+    specs: [
+      { label: "En", value: "30 cm" },
+      { label: "Boy", value: "30 cm" },
+      { label: "Yükseklik", value: "65 cm" },
+      { label: "Tel", value: "2 mm ve 4 mm paslanmaz" },
+      { label: "Üretim", value: "Vetelsan" },
+    ],
+  },
+  {
+    slug: "kedi-enjeksiyon-kafesi",
+    name: "Kedi Enjeksiyon (Sıkıştırma) Kafesi",
+    categorySlug: "yakalama-kafesleri",
+    shortDescription:
+      "Kedi ve benzeri vahşi hayvanlara güvenli enjeksiyon için sıkıştırma kafesi.",
+    description:
+      "Kedi ve benzeri vahşi hayvanlara (vaşak, tilki vb.) rahat ve kolay bir şekilde enjeksiyon benzeri tedavileri yapmak amacıyla üretilmiştir.\n\nKedi, kafesin içindeki tepsi benzeri havuza konulduktan sonra kafes içindeki tel ileri doğru itilir ve kedi sıkıştırılır. Böylelikle enjeksiyon yapmanın zor olduğu vakalarda insana zarar verilmeden tedavi tamamlanmış olur. Kafesin telleri geniş olduğu için iğne vb. tedavi ürünleri rahatlıkla hayvana uygulanabilir.\n\nTamamen kendi üretimimizdir.\n\nGerektiğinde sizlerin isteği ile farklı ölçülerde imal edilmektedir.",
+    image: "/images/products/yakalama-kafesleri/kedi-enjeksiyon-kafesi.png",
+    imageContain: true,
+    specs: [
+      { label: "En", value: "60 cm" },
+      { label: "Boy", value: "30 cm" },
+      { label: "Yükseklik", value: "50 cm" },
+      { label: "Üretim", value: "Vetelsan" },
+    ],
   },
 ];
 

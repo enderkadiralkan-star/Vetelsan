@@ -59,8 +59,13 @@ export function CategoryPageHero({
             alt={category.imageAlt}
             fill
             priority
+            quality={93}
             sizes="(max-width: 1024px) 100vw, 46vw"
-            className="object-cover"
+            className={cn(
+              category.imageContain
+                ? "object-contain p-8 sm:p-10 lg:p-12"
+                : "object-cover object-center",
+            )}
           />
         </FadeIn>
       </Container>

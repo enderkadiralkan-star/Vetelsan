@@ -9,7 +9,7 @@ export const productCategories: ProductCategory[] = [
     href: "/urunler/aticilar",
     icon: "crosshair",
     image: "/images/categories/aticilar.jpg",
-    imageAlt: "Saha ve yaban hayatı yakalama operasyonu",
+    imageAlt: "Enjektör atıcı tüfek, tabanca ve saha enjeksiyon sistemleri",
   },
   {
     slug: "cerrahi-ve-medikal",
@@ -19,7 +19,7 @@ export const productCategories: ProductCategory[] = [
     href: "/urunler/cerrahi-ve-medikal",
     icon: "stethoscope",
     image: "/images/categories/cerrahi.jpg",
-    imageAlt: "Steril cerrahi aletler ve medikal ekipman",
+    imageAlt: "Cerrahi aletler, operasyon masası ve klinik sarf malzemeleri",
   },
   {
     slug: "diger-urunler",
@@ -29,7 +29,7 @@ export const productCategories: ProductCategory[] = [
     href: "/urunler/diger-urunler",
     icon: "package",
     image: "/images/categories/diger.jpg",
-    imageAlt: "Evcil hayvan bakım ve aksesuar ürünleri",
+    imageAlt: "Köpek ağızlığı, tedavi yakalığı ve bakım ürünleri",
   },
   {
     slug: "enjektorler",
@@ -39,7 +39,7 @@ export const productCategories: ProductCategory[] = [
     href: "/urunler/enjektorler",
     icon: "syringe",
     image: "/images/categories/enjektorler.jpg",
-    imageAlt: "Veteriner enjektör uygulaması",
+    imageAlt: "Fünyeli ve dart enjektörler — saha enjeksiyon çözümleri",
   },
   {
     slug: "isaretleme-numaralandirma",
@@ -49,7 +49,7 @@ export const productCategories: ProductCategory[] = [
     href: "/urunler/isaretleme-numaralandirma",
     icon: "tags",
     image: "/images/categories/isaretleme.jpg",
-    imageAlt: "Kulak küpeli büyükbaş hayvan işaretleme",
+    imageAlt: "Kulak küpesi, RFID okuyucu ve hayvan kimliklendirme ekipmanları",
   },
   {
     slug: "mamalar",
@@ -59,7 +59,7 @@ export const productCategories: ProductCategory[] = [
     href: "/urunler/mamalar",
     icon: "bone",
     image: "/images/categories/mamalar.jpg",
-    imageAlt: "Kedi ve köpek mama ürünleri",
+    imageAlt: "Kedi ve köpek mama ürünleri — kuru ve konserve",
   },
   {
     slug: "yakalama-aparatlari",
@@ -69,7 +69,7 @@ export const productCategories: ProductCategory[] = [
     href: "/urunler/yakalama-aparatlari",
     icon: "hand",
     image: "/images/categories/aparatlari.jpg",
-    imageAlt: "Güvenli hayvan yakalama ve sevk ekipmanı",
+    imageAlt: "Yakalama aparatları, file, eldiven ve kontrol ekipmanları",
   },
   {
     slug: "yakalama-kafesleri",
@@ -79,7 +79,7 @@ export const productCategories: ProductCategory[] = [
     href: "/urunler/yakalama-kafesleri",
     icon: "box",
     image: "/images/categories/kafesleri.jpg",
-    imageAlt: "Hayvan tutma ve yakalama kafesleri",
+    imageAlt: "Tel kafes yakalama sistemleri — farklı boyutlarda",
   },
 ];
 

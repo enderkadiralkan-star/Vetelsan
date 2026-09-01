@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { aboutPlants } from "@/components/about/plants";
+import { aboutPlants, getAboutPlantImageAlt } from "@/components/about/plants";
 import { Container } from "@/components/Container";
 import { FadeIn } from "@/components/FadeIn";
 import { getLocale } from "@/lib/i18n/locale";
@@ -42,7 +42,7 @@ export async function AboutProduction() {
               >
                 <Image
                   src={plant.image}
-                  alt={plant.imageAlt}
+                  alt={getAboutPlantImageAlt(plant, t)}
                   fill
                   sizes={
                     index === 2

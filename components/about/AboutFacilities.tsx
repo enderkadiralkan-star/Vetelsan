@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { aboutPlants } from "@/components/about/plants";
+import { aboutPlants, getAboutPlantImageAlt } from "@/components/about/plants";
 import { Container } from "@/components/Container";
 import { FadeIn } from "@/components/FadeIn";
 import { getLocale } from "@/lib/i18n/locale";
@@ -38,7 +38,7 @@ export async function AboutFacilities() {
               >
                 <Image
                   src={plant.image}
-                  alt={plant.imageAlt}
+                  alt={getAboutPlantImageAlt(plant, t)}
                   fill
                   sizes={
                     index === 0
