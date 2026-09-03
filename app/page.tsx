@@ -7,10 +7,10 @@ import { getLocale } from "@/lib/i18n/locale";
 import { pageMetadata } from "@/lib/metadata";
 import { homeKeywords } from "@/lib/seo/keywords";
 
-// Defer heavy below-fold client components to reduce main bundle size
+// Defer heavy below-fold components to reduce initial JS
 const FairsGallery = dynamic(
   () => import("@/components/home/FairsGallery").then((m) => ({ default: m.FairsGallery })),
-  { ssr: false, loading: () => <div className="h-[360px] bg-light" /> },
+  { loading: () => <div className="h-[360px] bg-light" /> },
 );
 
 const HomeLocationSection = dynamic(() =>
