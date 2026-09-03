@@ -8,7 +8,7 @@ export const productCategories: ProductCategory[] = [
       "Kartuş ve üfleme basınçlı enjektör atıcı tabanca, tüfek, üfleme borusu ve havalı tüfek sistemleri. Tamamen Vetelsan üretimi saha çözümleri.",
     href: "/urunler/aticilar",
     icon: "crosshair",
-    image: "/images/categories/aticilar.jpg",
+    image: "/images/categories/aticilar.webp",
     imageAlt: "Enjektör atıcı tüfek, tabanca ve saha enjeksiyon sistemleri",
   },
   {
@@ -18,7 +18,7 @@ export const productCategories: ProductCategory[] = [
       "Muayene ve cerrahi eldivenlerden gaz kompres, spanç ve sargıya; portegü, makas, pens ve operasyon masalarına kadar klinik ekipman.",
     href: "/urunler/cerrahi-ve-medikal",
     icon: "stethoscope",
-    image: "/images/categories/cerrahi.jpg",
+    image: "/images/categories/cerrahi.webp",
     imageAlt: "Cerrahi aletler, operasyon masası ve klinik sarf malzemeleri",
   },
   {
@@ -28,7 +28,7 @@ export const productCategories: ProductCategory[] = [
       "Köpek ağızlıkları, tedavi sonrası yakalıklar, bakım ve taşıma ürünleri.",
     href: "/urunler/diger-urunler",
     icon: "package",
-    image: "/images/categories/diger.jpg",
+    image: "/images/categories/diger.webp",
     imageAlt: "Köpek ağızlığı, tedavi yakalığı ve bakım ürünleri",
   },
   {
@@ -38,7 +38,7 @@ export const productCategories: ProductCategory[] = [
       "Fünyeli, üflemeli ve havalı tüfek enjektörleri. Kendi üretimimiz olan saha çözümleri.",
     href: "/urunler/enjektorler",
     icon: "syringe",
-    image: "/images/categories/enjektorler.jpg",
+    image: "/images/categories/enjektorler.webp",
     imageAlt: "Fünyeli ve dart enjektörler — saha enjeksiyon çözümleri",
   },
   {
@@ -48,7 +48,7 @@ export const productCategories: ProductCategory[] = [
       "Sokak ve besi hayvanlarının takibi için kulak küpesi, mikroçip ve işaretleme ekipmanları.",
     href: "/urunler/isaretleme-numaralandirma",
     icon: "tags",
-    image: "/images/categories/isaretleme.jpg",
+    image: "/images/categories/isaretleme.webp",
     imageAlt: "Kulak küpesi, RFID okuyucu ve hayvan kimliklendirme ekipmanları",
   },
   {
@@ -58,7 +58,7 @@ export const productCategories: ProductCategory[] = [
       "Kedi ve köpekler için türüne uygun mama ve beslenme ürünleri.",
     href: "/urunler/mamalar",
     icon: "bone",
-    image: "/images/categories/mamalar.jpg",
+    image: "/images/categories/mamalar.webp",
     imageAlt: "Kedi ve köpek mama ürünleri — kuru ve konserve",
   },
   {
@@ -68,7 +68,7 @@ export const productCategories: ProductCategory[] = [
       "Kedi ve köpeklerin güvenli yakalanması ve sevki için aparat çözümleri.",
     href: "/urunler/yakalama-aparatlari",
     icon: "hand",
-    image: "/images/categories/aparatlari.jpg",
+    image: "/images/categories/aparatlari.webp",
     imageAlt: "Yakalama aparatları, file, eldiven ve kontrol ekipmanları",
   },
   {
@@ -78,7 +78,7 @@ export const productCategories: ProductCategory[] = [
       "Taşınabilir kafesler ve stressiz yakalama sistemleri.",
     href: "/urunler/yakalama-kafesleri",
     icon: "box",
-    image: "/images/categories/kafesleri.jpg",
+    image: "/images/categories/kafesleri.webp",
     imageAlt: "Tel kafes yakalama sistemleri — farklı boyutlarda",
   },
 ];

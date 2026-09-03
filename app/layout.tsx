@@ -11,15 +11,17 @@ import { organizationSchema, websiteSchema } from "@/lib/seo/schema";
 import "./globals.css";
 
 const inter = Inter({
-  subsets: ["latin", "latin-ext"],
+  subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
+  preload: true,
 });
 
 const manrope = Manrope({
-  subsets: ["latin", "latin-ext"],
+  subsets: ["latin"],
   variable: "--font-manrope",
   display: "swap",
+  preload: false,
 });
 
 export const viewport: Viewport = {

@@ -181,6 +181,9 @@ body {
     width: max-content;
     display: flex;
     animation: fair-marquee 42s linear infinite;
+  }
+
+  .fair-marquee:not(.is-paused) {
     will-change: transform;
   }
 

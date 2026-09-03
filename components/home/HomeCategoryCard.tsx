@@ -35,7 +35,7 @@ export function HomeCategoryCard({
         alt={category.imageAlt}
         fill
         priority={priority}
-        quality={93}
+        quality={80}
         sizes="(max-width: 639px) 50vw, (max-width: 1023px) 33vw, 25vw"
         className={cn(
           category.imageContain

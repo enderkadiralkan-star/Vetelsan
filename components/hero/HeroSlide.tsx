@@ -21,6 +21,8 @@ export function HeroSlide({
   const [videoReady, setVideoReady] = useState(false);
   const [videoFailed, setVideoFailed] = useState(false);
   const [ready, setReady] = useState(false);
+  // Defer rendering non-first slides until they are first activated
+  const [hasBeenActive, setHasBeenActive] = useState(priority);
   const showVideo =
     allowVideo && active && Boolean(slide.videoSrc) && !videoFailed;
 
@@ -29,8 +31,27 @@ export function HeroSlide({
   }, []);
 
   useEffect(() => {
+    if (active) setHasBeenActive(true);
+  }, [active]);
+
+  useEffect(() => {
     if (!showVideo) setVideoReady(false);
   }, [showVideo]);
+
+  const commonImageProps = {
+    fill: true as const,
+    quality: 80,
+    loading: priority ? ("eager" as const) : ("lazy" as const),
+    fetchPriority: priority ? ("high" as const) : ("low" as const),
+    className: cn(
+      "hero-photo object-cover",
+      showVideo && videoReady && "opacity-0",
+    ),
+    style: {
+      "--hero-pos": slide.objectPosition ?? "center",
+      "--hero-pos-m": slide.mobileObjectPosition ?? "center",
+    } as React.CSSProperties,
+  };
 
   return (
     <div
@@ -41,25 +62,28 @@ export function HeroSlide({
       )}
       aria-hidden={!active}
     >
-      <Image
-        src={slide.poster}
-        alt={active ? slide.alt : ""}
-        fill
-        sizes="100vw"
-        quality={93}
-        loading={priority ? "eager" : "lazy"}
-        fetchPriority={priority ? "high" : "low"}
-        className={cn(
-          "hero-photo object-cover",
-          showVideo && videoReady && "opacity-0",
-        )}
-        style={
-          {
-            "--hero-pos": slide.objectPosition ?? "center",
-            "--hero-pos-m": slide.mobileObjectPosition ?? "center",
-          } as React.CSSProperties
-        }
-      />
+      {hasBeenActive ? (
+        <>
+          {/* Mobile image — served below md breakpoint */}
+          <Image
+            src={slide.mobilePoster ?? slide.poster}
+            alt={active ? slide.alt : ""}
+            sizes="100vw"
+            {...commonImageProps}
+            className={cn(commonImageProps.className, "md:hidden")}
+          />
+          {/* Desktop image — served at md and above */}
+          <Image
+            src={slide.poster}
+            alt={active ? slide.alt : ""}
+            sizes="100vw"
+            {...commonImageProps}
+            className={cn(commonImageProps.className, "hidden md:block")}
+          />
+        </>
+      ) : (
+        <div className="absolute inset-0 bg-[#111111]" />
+      )}
       {showVideo ? (
         <video
           className={cn(
