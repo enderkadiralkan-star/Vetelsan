@@ -19,27 +19,27 @@ export function HeroControls({
   nextLabel,
 }: HeroControlsProps) {
   return (
-    <div className="flex shrink-0 items-center gap-3 sm:gap-5">
-      <p className="font-display text-[12px] tabular-nums tracking-[0.16em] text-white/80 sm:text-[13px]">
+    <div className="flex shrink-0 items-center gap-4 sm:gap-5">
+      <p className="font-display text-[11px] tabular-nums tracking-[0.2em] text-white/55 sm:text-[12px]">
         <span className="text-white">{padIndex(index)}</span>
-        <span className="text-white/35"> / {padCount(total)}</span>
+        <span className="text-white/30"> / {padCount(total)}</span>
       </p>
-      <div className="flex items-center">
+      <div className="flex items-center gap-1.5">
         <button
           type="button"
-          className="inline-flex size-11 items-center justify-center text-white/85 transition-colors duration-300 hover:text-white"
+          className="inline-flex size-10 items-center justify-center border border-white/20 bg-white/[0.04] text-white/80 backdrop-blur-[2px] transition-colors duration-300 hover:border-white/45 hover:bg-white/10 hover:text-white sm:size-11"
           aria-label={prevLabel}
           onClick={onPrev}
         >
-          <ChevronLeft className="size-[18px]" strokeWidth={1.5} />
+          <ChevronLeft className="size-[17px]" strokeWidth={1.4} />
         </button>
         <button
           type="button"
-          className="inline-flex size-11 items-center justify-center text-white/85 transition-colors duration-300 hover:text-white"
+          className="inline-flex size-10 items-center justify-center border border-white/20 bg-white/[0.04] text-white/80 backdrop-blur-[2px] transition-colors duration-300 hover:border-white/45 hover:bg-white/10 hover:text-white sm:size-11"
           aria-label={nextLabel}
           onClick={onNext}
         >
-          <ChevronRight className="size-[18px]" strokeWidth={1.5} />
+          <ChevronRight className="size-[17px]" strokeWidth={1.4} />
         </button>
       </div>
     </div>

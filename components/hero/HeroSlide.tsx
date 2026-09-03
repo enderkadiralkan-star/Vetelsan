@@ -46,6 +46,7 @@ export function HeroSlide({
         alt={active ? slide.alt : ""}
         fill
         sizes="100vw"
+        quality={93}
         loading={priority ? "eager" : "lazy"}
         fetchPriority={priority ? "high" : "low"}
         className={cn(

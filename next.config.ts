@@ -7,7 +7,7 @@ const categorySlugs = new Set(productCategories.map((category) => category.slug)
 const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 2560, 3840],
     qualities: [75, 92, 93],
   },
   serverExternalPackages: ["nodemailer"],

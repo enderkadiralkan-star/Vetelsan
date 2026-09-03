@@ -116,18 +116,18 @@ export function HeroSlider() {
       ))}
 
       <div
-        className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(90deg,rgba(0,0,0,0.62)_0%,rgba(0,0,0,0.28)_42%,rgba(0,0,0,0.08)_64%,rgba(0,0,0,0)_82%)]"
+        className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(90deg,rgba(0,0,0,0.48)_0%,rgba(0,0,0,0.22)_38%,rgba(0,0,0,0.06)_58%,rgba(0,0,0,0)_78%)]"
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-t from-black/55 via-black/10 to-transparent"
+        className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-t from-black/50 via-transparent to-black/20"
         aria-hidden="true"
       />
 
-      <div className="relative z-10 mx-auto flex h-full min-h-[max(680px,100svh)] w-full max-w-[1440px] flex-col justify-end px-6 pb-[104px] md:min-h-0 md:px-[clamp(2.5rem,8vw,7.5rem)] md:pb-[120px] lg:pb-[128px]">
-        <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between md:gap-10">
+      <div className="relative z-10 mx-auto flex h-full min-h-[max(680px,100svh)] w-full max-w-[1440px] flex-col justify-end px-6 pb-[108px] pt-[120px] md:min-h-0 md:justify-center md:px-[clamp(2.5rem,8vw,7.5rem)] md:pb-[96px] md:pt-[108px] lg:pb-[104px]">
+        <div className="flex flex-col gap-10 md:flex-row md:items-end md:justify-between md:gap-12">
           <HeroCopy key={active.id} slide={active} motionEnabled={hydrated} />
-          <div className="self-end">
+          <div className="self-end md:pb-1">
             <HeroControls
               index={index}
               total={slides.length}

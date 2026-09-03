@@ -54,6 +54,6 @@ export const mapLocation = {
 export const socialLinks: SocialLink[] = [];
 
 export const whatsapp = {
-  display: "0 (535) 256 04 77",
-  href: "https://wa.me/905352560477",
+  display: "0 (539) 931 44 44",
+  href: "https://wa.me/905399314444",
 } as const;

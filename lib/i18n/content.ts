@@ -904,32 +904,34 @@ const heroEn: Record<
   }
 > = {
   "guvenilir-cozum": {
-    eyebrow: "Vetelsan / Veterinary health",
-    title: "Trusted veterinary\nsolutions.",
-    highlight: "veterinary",
+    eyebrow: "Vetelsan · Veterinary health",
+    title: "Your trusted partner\nin animal health.",
+    highlight: "trusted",
     description:
-      "Veterinary health, field equipment, and professional product solutions under one roof.",
+      "Since 1996, reliable solutions for veterinary clinics, public institutions, and field teams — under one roof.",
     primaryCta: "Explore products",
     secondaryCta: "Meet Vetelsan",
-    alt: "Veterinarian examining an animal",
+    alt: "Veterinarian examining a golden retriever in a modern clinic",
   },
   "yakalama-ekipmanlari": {
-    eyebrow: "Field equipment",
+    eyebrow: "Manufacturing · Field equipment",
     title: "Equipment the field\nactually needs.",
+    highlight: "equipment",
     description:
-      "Professional solutions for capture, identification, injection, and field operations.",
+      "Our own manufactured professional solutions for capture, identification, injection, and field operations.",
     primaryCta: "Explore equipment",
     secondaryCta: "View projectors",
-    alt: "Veterinary field team working outdoors",
+    alt: "Field team preparing veterinary equipment outdoors near livestock",
   },
   "ilaclar-asilar": {
-    eyebrow: "Veterinary treatment",
+    eyebrow: "Medicines · Vaccines · Care",
     title: "Reliable products for\ntreatment and protection.",
+    highlight: "Reliable",
     description:
-      "Medicine and vaccine solutions for veterinary clinics and field applications.",
+      "Medicine, vaccine, and protection solutions for veterinary clinics and field applications.",
     primaryCta: "Medicines & Vaccines",
     secondaryCta: "Request information",
-    alt: "Veterinary laboratory environment",
+    alt: "Veterinary medicine and vaccine vials in a laboratory setting",
   },
 };
 
