@@ -38,14 +38,7 @@ export default function HomePage() {
   return (
     <>
       {/* Preload first hero image for faster LCP */}
-      {/* eslint-disable-next-line @next/next/no-page-custom-font */}
-      <link
-        rel="preload"
-        as="image"
-        href="/images/hero/veterinary.jpg"
-        // @ts-expect-error — imageSizes / imageSrcSet are valid HTML but not yet typed in React
-        imageSizes="100vw"
-      />
+      <link rel="preload" as="image" href="/images/hero/veterinary.jpg" />
       <HeroSlider />
       <CategoriesSection />
       <MedicinesSection />
