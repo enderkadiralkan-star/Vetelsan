@@ -1,5 +1,5 @@
 import nodemailer from "nodemailer";
-import type { ContactInput } from "./contact";
+import { sanitizeHeaderValue, type ContactInput } from "./contact";
 import { contact, site } from "./site";
 
 export function isMailConfigured() {
@@ -29,14 +29,16 @@ export async function sendContactEmail(fields: Omit<ContactInput, "kvkk">) {
 
   const to = process.env.CONTACT_TO ?? contact.email;
   const from = process.env.CONTACT_FROM ?? process.env.SMTP_USER;
+  const replyTo = sanitizeHeaderValue(fields.email);
+  const subject = `[Vetelsan] ${sanitizeHeaderValue(fields.subject)}`;
 
   const text = [
     `Yeni iletişim formu mesajı — ${site.name}`,
     "",
-    `Ad Soyad: ${fields.name}`,
-    `E-posta: ${fields.email}`,
-    `Telefon: ${fields.phone}`,
-    `Konu: ${fields.subject}`,
+    `Ad Soyad: ${sanitizeHeaderValue(fields.name)}`,
+    `E-posta: ${replyTo}`,
+    `Telefon: ${sanitizeHeaderValue(fields.phone)}`,
+    `Konu: ${sanitizeHeaderValue(fields.subject)}`,
     "",
     fields.message,
   ].join("\n");
@@ -44,8 +46,8 @@ export async function sendContactEmail(fields: Omit<ContactInput, "kvkk">) {
   await transporter.sendMail({
     from,
     to,
-    replyTo: fields.email,
-    subject: `[Vetelsan] ${fields.subject}`,
+    replyTo,
+    subject,
     text,
     html: `
       <div style="font-family:Arial,sans-serif;line-height:1.5;color:#17191c">

@@ -12,6 +12,11 @@ export type ContactFieldErrors = Partial<Record<ContactField, string>>;
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+/** Strip CR/LF/null to prevent SMTP header injection. */
+export function sanitizeHeaderValue(value: string) {
+  return value.replace(/[\r\n\0]/g, "").trim();
+}
+
 export function digitsOnly(value: string) {
   return value.replace(/\D/g, "");
 }
@@ -20,11 +25,13 @@ export function parseContactForm(formData: FormData): ContactInput & {
   honeypot: string;
 } {
   return {
-    name: String(formData.get("name") ?? "").trim(),
-    email: String(formData.get("email") ?? "").trim(),
-    phone: String(formData.get("phone") ?? "").trim(),
-    subject: String(formData.get("subject") ?? "").trim(),
-    message: String(formData.get("message") ?? "").trim(),
+    name: sanitizeHeaderValue(String(formData.get("name") ?? "")),
+    email: sanitizeHeaderValue(String(formData.get("email") ?? "")).toLowerCase(),
+    phone: sanitizeHeaderValue(String(formData.get("phone") ?? "")),
+    subject: sanitizeHeaderValue(String(formData.get("subject") ?? "")),
+    message: String(formData.get("message") ?? "")
+      .replace(/\0/g, "")
+      .trim(),
     kvkk:
       formData.get("kvkk") === "on" ||
       formData.get("kvkk") === "true" ||
