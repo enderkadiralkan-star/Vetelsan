@@ -9,7 +9,7 @@ export async function AboutHero() {
   const meta = [
     { value: "1996", label: t("aboutPage.statFounded") },
     { value: "200+", label: t("home.statProducts") },
-    { value: "81", label: t("aboutPage.provinceLabel") },
+    { value: "81", label: t("aboutPage.statCoverage") },
   ];
 
   return (
@@ -26,11 +26,14 @@ export async function AboutHero() {
         <Container>
           <dl className="grid grid-cols-3 divide-x divide-line">
             {meta.map((item) => (
-              <div key={item.value} className="px-3 py-5 first:pl-0 last:pr-0 sm:px-6 sm:py-6">
-                <dt className="type-small text-muted">{item.label}</dt>
-                <dd className="mt-2 font-display text-[22px] font-medium tracking-[-0.04em] text-ink sm:text-[28px]">
+              <div
+                key={item.value}
+                className="min-w-0 px-3 py-5 first:pl-0 last:pr-0 sm:px-6 sm:py-7"
+              >
+                <dd className="font-display text-[clamp(1.35rem,4vw,1.75rem)] font-medium tracking-[-0.04em] text-ink sm:text-[28px]">
                   {item.value}
                 </dd>
+                <dt className="mt-2 type-small text-muted">{item.label}</dt>
               </div>
             ))}
           </dl>

@@ -65,6 +65,8 @@ export type PhoneEntry = {
 
 export type ContactInfo = {
   address: string;
+  /** Compact line for editorial contact layouts */
+  addressShort: string;
   phones: PhoneEntry[];
   fax: PhoneEntry;
   email: string;

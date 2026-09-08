@@ -18,6 +18,7 @@ export function getSiteBaseUrl(): string {
 
 export const contact: ContactInfo = {
   address: "Başharık Mahallesi Gönültaş Caddesi Irmak Sokak No: 9/A Battalgazi / MALATYA",
+  addressShort: "Başharık Mah., Battalgazi / Malatya",
   phones: [
     {
       label: "switchboard",

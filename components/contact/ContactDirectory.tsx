@@ -1,104 +1,112 @@
 import { ArrowRight } from "lucide-react";
-import { Container } from "@/components/Container";
 import { FadeIn } from "@/components/FadeIn";
 import { getLocale } from "@/lib/i18n/locale";
 import { createT } from "@/lib/i18n/t";
 import { contact, whatsapp } from "@/lib/site";
-import { padIndex } from "@/lib/utils";
 
-type Row = {
+type Channel = {
+  id: string;
   label: string;
-  value: string;
   href?: string;
   external?: boolean;
+  value: string;
+  action?: string;
 };
 
 export async function ContactDirectory() {
   const t = createT(await getLocale());
 
-  const rows: Row[] = [
+  const channels: Channel[] = [
     {
+      id: "phone",
+      label: t("contactPage.phone"),
+      value: contact.phones[0]?.display ?? "",
+      action: t("contactPage.actionCall"),
+    },
+    {
+      id: "whatsapp",
       label: "WhatsApp",
-      value: whatsapp.display,
       href: whatsapp.href,
       external: true,
+      value: t("contactPage.whatsappCta"),
+      action: t("contactPage.actionWhatsapp"),
     },
     {
+      id: "email",
       label: t("contactPage.email"),
-      value: contact.email,
       href: `mailto:${contact.email}`,
+      value: contact.email,
+      action: t("contactPage.actionEmail"),
     },
     {
+      id: "fax",
       label: t("contactPage.fax"),
-      value: contact.fax.display,
       href: contact.fax.href,
-    },
-    {
-      label: t("contactPage.hours"),
-      value: `${t("contactPage.weekday")} · ${t("contactPage.saturday")}`,
-    },
-    {
-      label: t("contactPage.address"),
-      value: contact.address,
-      href: "#konum",
+      value: contact.fax.display,
     },
   ];
 
   return (
-    <section className="bg-white py-16 sm:py-20 lg:py-[120px]">
-      <Container>
-        <FadeIn className="max-w-[640px]">
-          <p className="type-kicker">{t("contactPage.writeKicker")}</p>
-          <h2 className="type-h2 mt-4 text-ink">{t("contactPage.detailsTitle")}</h2>
-          <p className="type-body mt-5 max-w-[48ch]">{t("contactPage.detailsLead")}</p>
-        </FadeIn>
+    <FadeIn delay={0.04} className="min-w-0">
+      <ul className="border-t border-line">
+        {channels.map((channel) => {
+          const isPhone = channel.id === "phone";
 
-        <ul className="mt-10 border-b border-line lg:mt-16">
-          {rows.map((row, index) => {
-            const content = (
-              <article className="group relative grid gap-2 border-t border-line py-7 sm:gap-3 sm:py-8 lg:grid-cols-12 lg:items-center lg:gap-8 lg:py-9">
-                <span
-                  className="absolute left-0 top-7 hidden h-[calc(100%-3.5rem)] w-px origin-top scale-y-0 bg-primary transition-transform duration-500 group-hover:scale-y-100 motion-reduce:transition-none lg:top-9 lg:block lg:h-[calc(100%-4.5rem)]"
-                  aria-hidden="true"
-                />
-                <p className="type-kicker lg:col-span-1">{padIndex(index)}</p>
-                <p className="type-small text-muted lg:col-span-2">{row.label}</p>
-                <p className="min-w-0 break-words text-[17px] font-medium tracking-[-0.02em] text-ink transition-colors duration-300 group-hover:text-primary sm:text-[18px] lg:col-span-8">
-                  {row.value}
-                </p>
-                <span className="hidden lg:col-span-1 lg:flex lg:justify-end">
-                  {row.href ? (
-                    <ArrowRight
-                      className="size-4 text-ink/25 transition-all duration-500 group-hover:translate-x-1.5 group-hover:text-primary motion-reduce:transition-none"
-                      aria-hidden="true"
-                    />
+          const body = (
+            <div className="group flex min-h-12 items-start justify-between gap-5 py-6 sm:min-h-[52px] sm:gap-8 sm:py-7">
+              <div className="min-w-0 flex-1">
+                <p className="type-small text-muted">{channel.label}</p>
+                {isPhone ? (
+                  <ul className="mt-2 space-y-2.5">
+                    {contact.phones.map((phone) => (
+                      <li key={phone.href}>
+                        <a
+                          href={phone.href}
+                          className="block min-h-11 break-words py-0.5 font-display text-[clamp(1.25rem,4vw,1.75rem)] font-medium tracking-[-0.03em] text-ink transition-colors duration-300 hover:text-primary"
+                        >
+                          {phone.display}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="mt-2 break-words font-display text-[clamp(1.25rem,4vw,1.75rem)] font-medium tracking-[-0.03em] text-ink transition-colors duration-300 group-hover:text-primary">
+                    {channel.value}
+                  </p>
+                )}
+              </div>
+              {channel.action || channel.href ? (
+                <span className="mt-1 inline-flex shrink-0 items-center gap-2 text-[13px] font-medium text-ink/35 transition-all duration-300 group-hover:translate-x-1 group-hover:text-primary motion-reduce:transition-none sm:mt-2">
+                  {channel.action ? (
+                    <span className="hidden sm:inline">{channel.action}</span>
                   ) : null}
+                  <ArrowRight className="size-4" aria-hidden="true" />
                 </span>
-              </article>
-            );
+              ) : null}
+            </div>
+          );
 
-            return (
-              <li key={`${row.label}-${row.value}`}>
-                <FadeIn delay={Math.min(index, 5) * 0.03}>
-                  {row.href ? (
-                    <a
-                      href={row.href}
-                      {...(row.external
-                        ? { target: "_blank", rel: "noreferrer" }
-                        : {})}
-                      className="block outline-none focus-visible:bg-studio/60"
-                    >
-                      {content}
-                    </a>
-                  ) : (
-                    content
-                  )}
-                </FadeIn>
-              </li>
-            );
-          })}
-        </ul>
-      </Container>
-    </section>
+          return (
+            <li key={channel.id} className="border-b border-line">
+              {isPhone ? (
+                body
+              ) : channel.href ? (
+                <a
+                  href={channel.href}
+                  {...(channel.external
+                    ? { target: "_blank", rel: "noreferrer" }
+                    : {})}
+                  className="block outline-none focus-visible:bg-studio/50"
+                >
+                  {body}
+                </a>
+              ) : (
+                body
+              )}
+            </li>
+          );
+        })}
+      </ul>
+    </FadeIn>
   );
 }

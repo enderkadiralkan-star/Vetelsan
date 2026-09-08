@@ -28,40 +28,41 @@ export function DocumentsGallery() {
 
   return (
     <>
-      <div className="no-scrollbar -mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 min-[390px]:-mx-5 min-[390px]:px-5 sm:mx-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:overflow-visible sm:px-0 sm:pb-0">
+      <ul className="grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-5 lg:gap-6">
         {items.map((item) => (
-          <button
-            key={item.slug}
-            type="button"
-            onClick={() => setActive(item)}
-            className="group w-[min(78vw,300px)] shrink-0 snap-start text-left sm:w-auto"
-          >
-            <span className="relative block aspect-[3/4] overflow-hidden bg-studio">
-              <Image
-                src={item.image}
-                alt={item.title}
-                fill
-                sizes="(max-width: 639px) 78vw, 33vw"
-                className="object-contain p-5 transition-transform duration-700 ease-out group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
-              />
-            </span>
-            <span className="mt-4 block">
-              <span className="block text-[16px] font-medium tracking-[-0.02em] text-ink">
-                {item.title}
+          <li key={item.slug} className="min-w-0">
+            <button
+              type="button"
+              onClick={() => setActive(item)}
+              className="group w-full text-left outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+            >
+              <span className="relative block aspect-[3/4] overflow-hidden border border-line bg-white">
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  sizes="(max-width: 639px) 100vw, 33vw"
+                  className="object-contain p-5 transition-transform duration-700 ease-out group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100 sm:p-6"
+                />
               </span>
-              <span className="mt-1 block text-[13px] text-muted">{item.detail}</span>
-              <span className="mt-3 inline-flex min-h-11 items-center gap-2 text-[14px] font-medium text-ink transition-colors duration-300 group-hover:text-primary">
-                {t("aboutPage.viewDocument")}
-                <ArrowRight className="size-3.5 transition-transform duration-500 group-hover:translate-x-1.5 motion-reduce:transition-none" />
+              <span className="mt-4 block border-t border-line pt-4">
+                <span className="block text-[16px] font-medium tracking-[-0.02em] text-ink">
+                  {item.title}
+                </span>
+                <span className="mt-1 block text-[13px] text-muted">{item.detail}</span>
+                <span className="mt-3 inline-flex min-h-11 items-center gap-2 text-[14px] font-medium text-ink transition-colors duration-300 group-hover:text-primary">
+                  {t("aboutPage.viewDocument")}
+                  <ArrowRight className="size-3.5 transition-transform duration-500 group-hover:translate-x-1.5 motion-reduce:transition-none" />
+                </span>
               </span>
-            </span>
-          </button>
+            </button>
+          </li>
         ))}
-      </div>
+      </ul>
 
       {active ? (
         <div
-          className="fixed inset-0 z-[80] flex items-center justify-center bg-ink/90 p-4 sm:p-8"
+          className="fixed inset-0 z-[80] flex items-center justify-center bg-ink/92 p-4 sm:p-8"
           role="dialog"
           aria-modal="true"
           aria-label={active.title}

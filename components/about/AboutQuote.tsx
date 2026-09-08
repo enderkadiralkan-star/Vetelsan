@@ -8,7 +8,7 @@ export async function AboutQuote() {
   const t = createT(await getLocale());
 
   return (
-    <section className="relative isolate overflow-hidden bg-ink">
+    <section className="relative isolate h-[300px] overflow-hidden bg-ink sm:h-[340px] lg:h-[420px]">
       <div className="absolute inset-0">
         <Image
           src="/images/hero/field.jpg"
@@ -17,18 +17,19 @@ export async function AboutQuote() {
           sizes="100vw"
           className="object-cover object-[center_42%]"
         />
+        <div className="absolute inset-0 bg-ink/72" aria-hidden="true" />
         <div
-          className="absolute inset-0 bg-ink/70"
+          className="absolute inset-0 bg-[linear-gradient(to_top,rgba(17,17,17,0.55)_0%,transparent_55%)]"
           aria-hidden="true"
         />
       </div>
-      <Container className="relative py-20 sm:py-28 lg:py-36">
-        <FadeIn className="max-w-[820px]">
-          <p className="type-kicker text-white/70">{t("aboutPage.body1Title")}</p>
-          <h2 className="type-h1 mt-5 whitespace-pre-line text-white">
+      <Container className="relative flex h-full min-w-0 flex-col justify-end pb-8 lg:pb-12">
+        <FadeIn className="max-w-[760px]">
+          <p className="type-kicker text-white/65">{t("aboutPage.body1Title")}</p>
+          <h2 className="mt-4 whitespace-pre-line font-display text-[clamp(1.85rem,6vw,3.25rem)] font-medium leading-[1.12] tracking-[-0.04em] text-white">
             {t("aboutPage.quote")}
           </h2>
-          <p className="type-body mt-8 max-w-[540px] text-white/75">
+          <p className="type-body mt-5 max-w-[480px] text-[15px] text-white/72 sm:mt-6 sm:text-base">
             {t("aboutPage.body1")}
           </p>
         </FadeIn>

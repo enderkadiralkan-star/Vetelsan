@@ -36,7 +36,7 @@ export function AboutPlantGallery() {
 
   return (
     <>
-      <div className="mt-10 grid grid-cols-1 gap-3 lg:mt-16 lg:grid-cols-12 lg:gap-4">
+      <div className="mt-10 grid grid-cols-1 gap-px bg-line lg:mt-14 lg:grid-cols-12">
         {aboutPlants.map((plant, index) => (
           <button
             key={plant.titleKey}
@@ -44,14 +44,14 @@ export function AboutPlantGallery() {
             onClick={() => setActive(index)}
             aria-label={t("home.fairsOpen", { name: t(plant.titleKey) })}
             className={cn(
-              "group relative flex overflow-hidden bg-night text-left text-white outline-none",
+              "group relative flex overflow-hidden bg-ink text-left text-white outline-none",
               "focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2",
               index === 0 && "lg:col-span-7",
               index === 1 && "lg:col-span-5",
               index === 2 && "lg:col-span-12",
               index === 2
-                ? "h-[240px] sm:h-[280px] lg:h-[320px]"
-                : "h-[280px] sm:h-[320px] lg:h-[380px]",
+                ? "h-[220px] sm:h-[260px] lg:h-[300px]"
+                : "h-[260px] sm:h-[300px] lg:h-[360px]",
             )}
           >
             <Image
@@ -65,24 +65,20 @@ export function AboutPlantGallery() {
                     ? "(max-width: 1023px) 100vw, 58vw"
                     : "(max-width: 1023px) 100vw, 42vw"
               }
-              className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+              className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
             />
             <div
-              className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent"
+              className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent"
               aria-hidden="true"
             />
-            <span
-              className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-primary transition-transform duration-500 group-hover:scale-x-100 motion-reduce:transition-none"
-              aria-hidden="true"
-            />
-            <div className="relative mt-auto flex w-full items-end justify-between gap-4 p-5 sm:p-6">
-              <div>
-                <p className="type-kicker text-white/80">{padIndex(plant.index)}</p>
-                <h3 className="type-h3 mt-2 max-w-[20ch] text-white">
+            <div className="relative mt-auto flex w-full items-end justify-between gap-4 p-5 sm:p-6 lg:p-7">
+              <div className="min-w-0">
+                <p className="type-kicker text-white/75">{padIndex(plant.index)}</p>
+                <h3 className="mt-2 max-w-[22ch] font-display text-[clamp(1.15rem,2.5vw,1.5rem)] font-medium tracking-[-0.03em] text-white">
                   {t(plant.titleKey)}
                 </h3>
               </div>
-              <span className="mb-1 text-[12px] font-medium uppercase tracking-[0.14em] text-white/70 transition-colors duration-300 group-hover:text-white">
+              <span className="mb-0.5 shrink-0 text-[11px] font-medium uppercase tracking-[0.14em] text-white/55 transition-colors duration-300 group-hover:text-white">
                 {t("home.viewGallery")}
               </span>
             </div>
@@ -92,7 +88,7 @@ export function AboutPlantGallery() {
 
       {current && active !== null ? (
         <div
-          className="fixed inset-0 z-[80] flex items-center justify-center bg-night/94 p-4 backdrop-blur-[2px] sm:p-8"
+          className="fixed inset-0 z-[80] flex items-center justify-center bg-ink/95 p-4 backdrop-blur-[2px] sm:p-8"
           role="dialog"
           aria-modal="true"
           aria-label={t(current.titleKey)}
@@ -100,7 +96,7 @@ export function AboutPlantGallery() {
         >
           <button
             type="button"
-            className="absolute right-4 top-4 inline-flex size-11 items-center justify-center rounded-[6px] bg-white text-ink transition-colors hover:bg-white/90 sm:right-6 sm:top-6"
+            className="absolute right-4 top-4 inline-flex size-11 items-center justify-center bg-white text-ink transition-colors hover:bg-white/90 sm:right-6 sm:top-6"
             aria-label={t("common.close")}
             onClick={() => setActive(null)}
           >
@@ -110,7 +106,7 @@ export function AboutPlantGallery() {
             className="flex w-full max-w-6xl flex-col"
             onClick={(event) => event.stopPropagation()}
           >
-            <div className="relative mx-auto aspect-[16/10] w-full max-h-[82vh] overflow-hidden rounded-[8px] bg-night shadow-[0_40px_80px_-24px_rgba(0,0,0,0.65)]">
+            <div className="relative mx-auto aspect-[16/10] w-full max-h-[78vh] overflow-hidden border border-white/10 bg-ink">
               <Image
                 src={current.image}
                 alt={getAboutPlantImageAlt(current, t)}
@@ -121,14 +117,12 @@ export function AboutPlantGallery() {
                 priority
               />
             </div>
-            <div className="mt-5 text-center">
-              <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-white/55">
-                {padIndex(current.index)}
-              </p>
-              <p className="mt-2 font-display text-[22px] font-semibold tracking-[-0.02em] text-white sm:text-[26px]">
+            <div className="mt-5 text-center sm:mt-6">
+              <p className="type-kicker text-white/55">{padIndex(current.index)}</p>
+              <p className="mt-2 font-display text-[22px] font-medium tracking-[-0.03em] text-white sm:text-[26px]">
                 {t(current.titleKey)}
               </p>
-              <p className="mx-auto mt-2 max-w-[42rem] text-[15px] leading-[1.55] text-white/72">
+              <p className="mx-auto mt-2 max-w-[42rem] text-[15px] leading-[1.55] text-white/70">
                 {t(current.textKey)}
               </p>
             </div>

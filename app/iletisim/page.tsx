@@ -1,6 +1,6 @@
 import { ContactCta } from "@/components/contact/ContactCta";
-import { ContactDirectory } from "@/components/contact/ContactDirectory";
 import { ContactHero } from "@/components/contact/ContactHero";
+import { ContactMain } from "@/components/contact/ContactMain";
 import { ContactMap } from "@/components/ContactMap";
 import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -31,7 +31,7 @@ export default async function ContactPage() {
       <BreadcrumbSchema items={breadcrumbItems} />
       <JsonLd data={localBusinessSchema()} />
       <ContactHero />
-      <ContactDirectory />
+      <ContactMain />
       <ContactMap />
       <ContactCta />
     </>

@@ -15,27 +15,30 @@ export async function AboutValues() {
   ];
 
   return (
-    <section className="bg-white py-16 sm:py-20 lg:py-[120px]">
+    <section className="border-t border-line bg-white py-14 sm:py-16 lg:py-[112px]">
       <Container>
-        <FadeIn>
+        <FadeIn className="max-w-[560px]">
           <p className="type-kicker">{t("aboutPage.story")}</p>
           <h2 className="type-h2 mt-4 text-ink">{t("aboutPage.body1Title")}</h2>
         </FadeIn>
-        <ul className="mt-10 border-b border-line lg:mt-16">
+
+        <ul className="mt-10 border-t border-line lg:mt-14">
           {items.map((item, index) => (
-            <li key={item.title}>
-              <FadeIn delay={Math.min(index, 3) * 0.04}>
-                <article className="group relative grid gap-3 border-t border-line py-8 lg:grid-cols-12 lg:items-start lg:gap-8 lg:py-10">
+            <li key={item.title} className="border-b border-line">
+              <FadeIn delay={Math.min(index, 3) * 0.03}>
+                <article className="group relative grid gap-3 py-7 sm:py-8 lg:grid-cols-12 lg:items-start lg:gap-8 lg:py-9">
                   <span
-                    className="absolute left-0 top-8 hidden h-[calc(100%-4rem)] w-px origin-top scale-y-0 bg-primary transition-transform duration-500 group-hover:scale-y-100 motion-reduce:transition-none lg:block"
+                    className="absolute left-0 top-7 hidden h-[calc(100%-3.5rem)] w-px origin-top scale-y-0 bg-primary transition-transform duration-500 group-hover:scale-y-100 motion-reduce:transition-none lg:top-9 lg:block lg:h-[calc(100%-4.5rem)]"
                     aria-hidden="true"
                   />
                   <p className="type-kicker lg:col-span-1">{padIndex(index)}</p>
-                  <h3 className="type-h3 text-ink lg:col-span-3">{item.title}</h3>
+                  <h3 className="font-display text-[clamp(1.25rem,3vw,1.5rem)] font-medium tracking-[-0.03em] text-ink transition-colors duration-300 group-hover:text-primary lg:col-span-3">
+                    {item.title}
+                  </h3>
                   <p className="type-body lg:col-span-7">{item.text}</p>
                   <span className="hidden lg:col-span-1 lg:flex lg:justify-end">
                     <ArrowRight
-                      className="size-4 text-ink/30 transition-all duration-500 group-hover:translate-x-1.5 group-hover:text-primary motion-reduce:transition-none"
+                      className="size-4 text-ink/25 transition-all duration-500 group-hover:translate-x-1.5 group-hover:text-primary motion-reduce:transition-none"
                       aria-hidden="true"
                     />
                   </span>

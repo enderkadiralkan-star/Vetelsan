@@ -15,28 +15,36 @@ export async function AboutCoverage() {
   ];
 
   return (
-    <section className="border-y border-line bg-white py-16 sm:py-20 lg:py-[120px]">
+    <section className="border-y border-line bg-studio py-14 sm:py-16 lg:py-[112px]">
       <Container>
-        <div className="grid gap-12 lg:grid-cols-12 lg:items-end lg:gap-16">
-          <FadeIn className="lg:col-span-5">
+        <div className="grid gap-12 lg:grid-cols-12 lg:items-end lg:gap-16 xl:gap-20">
+          <FadeIn className="min-w-0 lg:col-span-5">
             <p className="type-kicker">{t("aboutPage.body3Title")}</p>
-            <p className="mt-4 flex items-end gap-3">
-              <span className="font-display text-[clamp(5rem,14vw,8.5rem)] font-medium leading-none tracking-[-0.06em] text-ink">
+            <p className="mt-5 flex flex-wrap items-end gap-x-3 gap-y-1">
+              <span className="font-display text-[clamp(5rem,18vw,10rem)] font-medium leading-none tracking-[-0.06em] text-ink">
                 81
               </span>
-              <span className="mb-2 type-small text-muted">{t("aboutPage.provinceLabel")}</span>
+              <span className="mb-2 type-small text-muted sm:mb-3">
+                {t("aboutPage.provinceLabel")}
+              </span>
             </p>
-            <h2 className="type-h2 mt-4 text-ink">{t("aboutPage.coverageHeadline")}</h2>
+            <h2 className="type-h2 mt-4 max-w-[12ch] text-ink">
+              {t("aboutPage.coverageHeadline")}
+            </h2>
           </FadeIn>
-          <FadeIn delay={0.06} className="lg:col-span-7">
-            <p className="type-body max-w-[540px]">{t("aboutPage.body3")}</p>
-            <ul className="mt-8 grid grid-cols-1 gap-x-10 gap-y-3 sm:grid-cols-2">
+
+          <FadeIn delay={0.04} className="min-w-0 lg:col-span-7">
+            <p className="type-body max-w-[48ch]">{t("aboutPage.body3")}</p>
+            <ul className="mt-8 border-t border-line">
               {audiences.map((item) => (
                 <li
                   key={item}
-                  className="flex items-center gap-3 border-t border-line pt-3 text-[15px] text-ink"
+                  className="flex min-h-12 items-center gap-4 border-b border-line py-3.5 text-[15px] text-ink sm:text-[16px]"
                 >
-                  <span className="h-px w-5 shrink-0 bg-primary" aria-hidden="true" />
+                  <span
+                    className="h-px w-4 shrink-0 bg-primary sm:w-5"
+                    aria-hidden="true"
+                  />
                   {item}
                 </li>
               ))}
