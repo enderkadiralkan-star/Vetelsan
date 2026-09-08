@@ -6,12 +6,6 @@ import { createT } from "@/lib/i18n/t";
 import { contact, whatsapp } from "@/lib/site";
 import { padIndex } from "@/lib/utils";
 
-function phoneLabelKey(label: (typeof contact.phones)[number]["label"]) {
-  return label === "switchboard"
-    ? "contactPage.phoneSwitchboard"
-    : "contactPage.phoneMobile";
-}
-
 type Row = {
   label: string;
   value: string;
@@ -23,11 +17,6 @@ export async function ContactDirectory() {
   const t = createT(await getLocale());
 
   const rows: Row[] = [
-    ...contact.phones.map((phone) => ({
-      label: t(phoneLabelKey(phone.label)),
-      value: phone.display,
-      href: phone.href,
-    })),
     {
       label: "WhatsApp",
       value: whatsapp.display,

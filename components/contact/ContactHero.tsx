@@ -5,24 +5,14 @@ import { createT } from "@/lib/i18n/t";
 import { contact } from "@/lib/site";
 import { padIndex } from "@/lib/utils";
 
+function phoneLabelKey(label: (typeof contact.phones)[number]["label"]) {
+  return label === "switchboard"
+    ? "contactPage.phoneSwitchboard"
+    : "contactPage.phoneMobile";
+}
+
 export async function ContactHero() {
   const t = createT(await getLocale());
-  const city =
-    contact.address.split("/").map((part) => part.trim()).at(-1) ?? "Malatya";
-  const meta = [
-    {
-      value: String(contact.phones.length),
-      label: t("contactPage.metaLines"),
-    },
-    {
-      value: city,
-      label: t("contactPage.location"),
-    },
-    {
-      value: "08:30 – 18:00",
-      label: t("contactPage.metaWeekday"),
-    },
-  ];
 
   return (
     <>
@@ -36,19 +26,29 @@ export async function ContactHero() {
       />
       <div className="border-b border-line bg-white">
         <Container>
-          <dl className="grid grid-cols-3 divide-x divide-line">
-            {meta.map((item) => (
-              <div
-                key={item.label}
-                className="px-3 py-5 first:pl-0 last:pr-0 sm:px-6 sm:py-6"
-              >
-                <dt className="type-small text-muted">{item.label}</dt>
-                <dd className="mt-2 font-display text-[22px] font-medium tracking-[-0.04em] text-ink sm:text-[28px]">
-                  {item.value}
-                </dd>
-              </div>
-            ))}
-          </dl>
+          <div className="py-6 sm:py-7">
+            <p className="type-small text-muted">{t("contactPage.metaLines")}</p>
+            <ul className="mt-4 grid grid-cols-1 gap-5 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-line">
+              {contact.phones.map((phone) => (
+                <li
+                  key={phone.href}
+                  className="min-w-0 sm:px-6 sm:first:pl-0 sm:last:pr-0"
+                >
+                  <a
+                    href={phone.href}
+                    className="group block transition-colors duration-300"
+                  >
+                    <p className="font-display text-[clamp(1.25rem,3.5vw,1.75rem)] font-medium tracking-[-0.03em] text-ink group-hover:text-primary">
+                      {phone.display}
+                    </p>
+                    <p className="mt-1 text-[12px] font-medium uppercase tracking-[0.14em] text-muted">
+                      {t(phoneLabelKey(phone.label))}
+                    </p>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </Container>
       </div>
     </>
