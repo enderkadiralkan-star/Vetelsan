@@ -33,8 +33,8 @@ export const heroSlides: HeroSlide[] = [
   },
   {
     id: "ilaclar-asilar",
-    eyebrow: "İlaç · Aşı · Tedavi",
-    title: "Tedavi ve korumada\ngüvenilir ürünler.",
+    eyebrow: "İlaç · Aşı · Klinik",
+    title: "Klinik ve sahada\ngüvenilir ürünler.",
     highlight: "güvenilir",
     description:
       "Veteriner klinikleri ve saha uygulamaları için ilaç, aşı ve koruma çözümleri.",

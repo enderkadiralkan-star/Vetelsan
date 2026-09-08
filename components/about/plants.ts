@@ -5,7 +5,6 @@ export const aboutPlants = [
     textKey: "aboutPage.facility1Text",
     imageAltKey: "aboutPage.facility1ImageAlt",
     image: "/images/about/kafes-aparat-uretim-tesisi.jpg",
-    href: "/urunler/yakalama-kafesleri",
   },
   {
     index: 1,
@@ -13,7 +12,6 @@ export const aboutPlants = [
     textKey: "aboutPage.facility2Text",
     imageAltKey: "aboutPage.facility2ImageAlt",
     image: "/images/about/enjektor-uretim-tesisi.jpg",
-    href: "/urunler/enjektorler",
   },
   {
     index: 2,
@@ -21,7 +19,6 @@ export const aboutPlants = [
     textKey: "aboutPage.facility3Text",
     imageAltKey: "aboutPage.facility3ImageAlt",
     image: "/images/about/tabanca-tufek-uretim-tesisi.jpg",
-    href: "/urunler/aticilar",
   },
 ] as const;
 

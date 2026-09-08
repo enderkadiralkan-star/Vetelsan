@@ -116,11 +116,11 @@ export function HeroSlider() {
       ))}
 
       <div
-        className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(90deg,rgba(0,0,0,0.48)_0%,rgba(0,0,0,0.22)_38%,rgba(0,0,0,0.06)_58%,rgba(0,0,0,0)_78%)]"
+        className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(180deg,rgba(0,0,0,0.38)_0%,rgba(0,0,0,0.22)_28%,rgba(0,0,0,0.55)_62%,rgba(0,0,0,0.78)_100%)] md:bg-[linear-gradient(90deg,rgba(0,0,0,0.48)_0%,rgba(0,0,0,0.22)_38%,rgba(0,0,0,0.06)_58%,rgba(0,0,0,0)_78%)]"
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-t from-black/50 via-transparent to-black/20"
+        className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-t from-black/70 via-black/20 to-transparent md:from-black/50 md:via-transparent md:to-black/20"
         aria-hidden="true"
       />
 

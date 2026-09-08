@@ -12,7 +12,9 @@ function emphasize(line: string, highlight?: string) {
   return (
     <>
       {line.slice(0, idx)}
-      <span className="text-[#E30613]">{line.slice(idx, idx + highlight.length)}</span>
+      <span className="text-[#FF4A52] [text-shadow:0_1px_12px_rgba(0,0,0,0.7)] md:text-[#E30613] md:[text-shadow:none]">
+        {line.slice(idx, idx + highlight.length)}
+      </span>
       {line.slice(idx + highlight.length)}
     </>
   );
@@ -33,25 +35,25 @@ export function HeroCopy({
       initial={animate ? { opacity: 0, y: 18 } : false}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      className="max-w-[340px] md:max-w-[580px]"
+      className="max-w-[min(100%,22rem)] md:max-w-[580px]"
     >
       <div className="flex items-center gap-3">
         <span
           className="hidden h-px w-8 bg-[#E30613] sm:block"
           aria-hidden="true"
         />
-        <p className="text-[11px] font-medium uppercase tracking-[0.28em] text-white/70 sm:text-[12px]">
+        <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-white/90 [text-shadow:0_1px_10px_rgba(0,0,0,0.55)] sm:text-[12px] sm:tracking-[0.28em] md:text-white/70 md:[text-shadow:none]">
           {slide.eyebrow}
         </p>
       </div>
-      <h1 className="mt-5 font-display text-[clamp(36px,10.5vw,50px)] font-semibold leading-[1.04] tracking-[-0.035em] text-white md:mt-6 md:text-[clamp(44px,4.8vw,72px)]">
+      <h1 className="mt-4 font-display text-[clamp(32px,8.8vw,46px)] font-semibold leading-[1.08] tracking-[-0.03em] text-white [text-shadow:0_2px_18px_rgba(0,0,0,0.65)] md:mt-6 md:text-[clamp(44px,4.8vw,72px)] md:leading-[1.04] md:tracking-[-0.035em] md:[text-shadow:none]">
         {slide.title.split("\n").map((line, index) => (
           <span key={index} className="block">
             {emphasize(line, slide.highlight)}
           </span>
         ))}
       </h1>
-      <p className="mt-5 max-w-[32rem] text-[15px] leading-[1.6] text-white/68 md:mt-6 md:text-[17px] md:leading-[1.65]">
+      <p className="mt-4 max-w-[32rem] text-[15px] leading-[1.55] text-white/92 [text-shadow:0_1px_12px_rgba(0,0,0,0.55)] md:mt-6 md:text-[17px] md:leading-[1.65] md:text-white/68 md:[text-shadow:none]">
         {slide.description}
       </p>
       <div className="mt-8 flex flex-col items-start gap-3 sm:mt-10 sm:flex-row sm:items-center sm:gap-3.5">

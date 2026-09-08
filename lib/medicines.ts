@@ -75,7 +75,8 @@ export const medicines: Medicine[] = [
     usage: "Kas içi",
     description:
       "Sokak hayvanlarını ve yabani hayvanları yakalamada, kurban bayramlarında kaçan hayvanların yakalanmasında, başıboş köpeklerin ve diğer hayvanların ameliyatlarında kullanılır.\n\nVeteriner kliniklerinde, hayvanat bahçeleri gibi yerlerde en çok tercih edilen anestezi türüdür.\n\nKsilazin köpekte kusma yaratır. Bu yüzden uygulama yapılmadan 12 saat öncesinde hayvana yiyecek verilmemelidir.",
-    image: "/images/medicines/vials.jpg",
+    image: "/images/medicines/products/control-10.png",
+    imageContain: true,
   },
   {
     slug: "keta-control",

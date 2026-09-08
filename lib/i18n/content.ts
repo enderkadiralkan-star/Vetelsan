@@ -924,8 +924,8 @@ const heroEn: Record<
     alt: "Field team preparing veterinary equipment outdoors near livestock",
   },
   "ilaclar-asilar": {
-    eyebrow: "Medicines · Vaccines · Care",
-    title: "Reliable products for\ntreatment and protection.",
+    eyebrow: "Medicines · Vaccines · Clinics",
+    title: "Reliable products for\nclinics and the field.",
     highlight: "Reliable",
     description:
       "Medicine, vaccine, and protection solutions for veterinary clinics and field applications.",
