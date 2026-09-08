@@ -261,7 +261,7 @@ const tr = {
     kicker: "İletişim",
     title: "Bize ulaşın",
     description:
-      "Ürün bilgisi, tedarik ve teknik destek talepleriniz için iletişim formunu doldurabilir veya doğrudan bizi arayabilirsiniz.",
+      "Ürün bilgisi, tedarik ve teknik destek için bizi arayabilir veya e-posta gönderebilirsiniz.",
     address: "Adres",
     contact: "İletişim",
     fax: "Faks",
@@ -314,10 +314,13 @@ const tr = {
     callDirect: "Doğrudan arayın",
     sendMail: "Mesaj gönderin",
     viewOnMap: "Haritada görüntüle",
-    writeKicker: "Bize yazın",
+    writeKicker: "İletişim bilgileri",
     formTitle: "Nasıl yardımcı olabiliriz?",
     formLead:
       "Ürün, tedarik, teknik destek veya diğer sorularınız için formu doldurun. Ekibimiz en kısa sürede sizinle iletişime geçsin.",
+    detailsTitle: "Doğrudan iletişim.",
+    detailsLead:
+      "Santral, mobil hatlar, e-posta ve çalışma saatlerimiz. En hızlı dönüş için bizi arayın veya yazın.",
     namePlaceholder: "Adınız Soyadınız",
     emailPlaceholder: "e-posta@example.com",
     mapKicker: "Konum",
@@ -363,7 +366,7 @@ const en: { [K in keyof typeof tr]: { [P in keyof (typeof tr)[K]]: string } } = 
       "The mission, vision, and official documents of Vetelsan, active in veterinary health since 1996.",
     contactTitle: "Contact",
     contactDescription:
-      "Get in touch with Vetelsan. Send product and supply requests by phone, email, or the contact form.",
+      "Get in touch with Vetelsan by phone or email for product and supply requests.",
     kvkkTitle: "Personal Data Notice (KVKK)",
     kvkkDescription:
       "How Vetelsan processes personal data under Türkiye’s Personal Data Protection Law No. 6698, including retention and your rights.",
@@ -603,7 +606,7 @@ const en: { [K in keyof typeof tr]: { [P in keyof (typeof tr)[K]]: string } } = 
     kicker: "Contact",
     title: "Get in touch",
     description:
-      "Fill in the contact form or call us directly for product information, supply, and technical support.",
+      "Get in touch by phone or email for product information, supply, and technical support.",
     address: "Address",
     contact: "Contact",
     fax: "Fax",
@@ -655,10 +658,13 @@ const en: { [K in keyof typeof tr]: { [P in keyof (typeof tr)[K]]: string } } = 
     callDirect: "Call us directly",
     sendMail: "Send a message",
     viewOnMap: "View on the map",
-    writeKicker: "Write to us",
+    writeKicker: "Contact details",
     formTitle: "How can we help?",
     formLead:
       "Fill in the form for product, supply, technical support, or other questions. Our team will get back to you as soon as possible.",
+    detailsTitle: "Reach us directly.",
+    detailsLead:
+      "Switchboard, mobile lines, email, and working hours. Call or write for the fastest response.",
     namePlaceholder: "Your full name",
     emailPlaceholder: "email@example.com",
     mapKicker: "Location",
