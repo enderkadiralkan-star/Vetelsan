@@ -321,6 +321,8 @@ const tr = {
     detailsTitle: "Doğrudan hatlar.",
     detailsLead:
       "Santral, mobil hatlar ve e-posta. En hızlı dönüş için doğrudan arayın.",
+    metaLines: "İletişim hattı",
+    metaWeekday: "Hafta içi",
     namePlaceholder: "Adınız Soyadınız",
     emailPlaceholder: "e-posta@example.com",
     mapKicker: "Konum",
@@ -665,6 +667,8 @@ const en: { [K in keyof typeof tr]: { [P in keyof (typeof tr)[K]]: string } } = 
     detailsTitle: "Direct lines.",
     detailsLead:
       "Switchboard, mobile lines, and email. Call directly for the fastest response.",
+    metaLines: "Contact lines",
+    metaWeekday: "Weekdays",
     namePlaceholder: "Your full name",
     emailPlaceholder: "email@example.com",
     mapKicker: "Location",

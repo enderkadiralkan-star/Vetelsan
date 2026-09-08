@@ -14,12 +14,15 @@ export async function ContactMap() {
   const embedSrc = getMapEmbedSrc(locale);
 
   return (
-    <section id="konum" className="scroll-mt-24 bg-white py-16 sm:py-20 lg:py-[120px]">
+    <section
+      id="konum"
+      className="scroll-mt-24 border-t border-line bg-studio py-16 sm:py-20 lg:py-[120px]"
+    >
       <Container>
         <div className="grid gap-10 lg:grid-cols-12 lg:items-end lg:gap-16">
           <FadeIn className="min-w-0 lg:col-span-4">
             <p className="type-kicker">
-              {padIndex(1)} — {t("contactPage.mapKicker")}
+              {padIndex(5)} — {t("contactPage.mapKicker")}
             </p>
             <h2 className="type-h2 mt-4 text-ink">{t("contactPage.mapHeading")}</h2>
             <p className="type-body mt-5 max-w-[420px]">{t("contactPage.mapLead")}</p>
@@ -34,7 +37,7 @@ export async function ContactMap() {
             </a>
           </FadeIn>
           <FadeIn delay={0.06} className="min-w-0 lg:col-span-8">
-            <div className="relative h-[360px] w-full overflow-hidden border border-line bg-studio lg:h-[460px]">
+            <div className="relative h-[320px] w-full overflow-hidden border border-line bg-white sm:h-[400px] lg:h-[460px]">
               <iframe
                 title={t("contactPage.mapTitle")}
                 src={embedSrc}
