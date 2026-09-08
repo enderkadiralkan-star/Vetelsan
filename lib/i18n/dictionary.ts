@@ -314,13 +314,13 @@ const tr = {
     callDirect: "Doğrudan arayın",
     sendMail: "Mesaj gönderin",
     viewOnMap: "Haritada görüntüle",
-    writeKicker: "İletişim bilgileri",
+    writeKicker: "İletişim",
     formTitle: "Nasıl yardımcı olabiliriz?",
     formLead:
       "Ürün, tedarik, teknik destek veya diğer sorularınız için formu doldurun. Ekibimiz en kısa sürede sizinle iletişime geçsin.",
-    detailsTitle: "Doğrudan iletişim.",
+    detailsTitle: "Doğrudan hatlar.",
     detailsLead:
-      "Santral, mobil hatlar, e-posta ve çalışma saatlerimiz. En hızlı dönüş için bizi arayın veya yazın.",
+      "Santral, mobil hatlar ve e-posta. En hızlı dönüş için doğrudan arayın.",
     namePlaceholder: "Adınız Soyadınız",
     emailPlaceholder: "e-posta@example.com",
     mapKicker: "Konum",
@@ -658,13 +658,13 @@ const en: { [K in keyof typeof tr]: { [P in keyof (typeof tr)[K]]: string } } = 
     callDirect: "Call us directly",
     sendMail: "Send a message",
     viewOnMap: "View on the map",
-    writeKicker: "Contact details",
+    writeKicker: "Contact",
     formTitle: "How can we help?",
     formLead:
       "Fill in the form for product, supply, technical support, or other questions. Our team will get back to you as soon as possible.",
-    detailsTitle: "Reach us directly.",
+    detailsTitle: "Direct lines.",
     detailsLead:
-      "Switchboard, mobile lines, email, and working hours. Call or write for the fastest response.",
+      "Switchboard, mobile lines, and email. Call directly for the fastest response.",
     namePlaceholder: "Your full name",
     emailPlaceholder: "email@example.com",
     mapKicker: "Location",

@@ -4,7 +4,6 @@ import { FadeIn } from "@/components/FadeIn";
 import { getLocale } from "@/lib/i18n/locale";
 import { createT } from "@/lib/i18n/t";
 import { getMapDirectionsHref, getMapEmbedSrc } from "@/lib/map-urls";
-import { contact } from "@/lib/site";
 import { padIndex } from "@/lib/utils";
 
 const directionsHref = getMapDirectionsHref();
@@ -24,9 +23,6 @@ export async function ContactMap() {
             </p>
             <h2 className="type-h2 mt-4 text-ink">{t("contactPage.mapHeading")}</h2>
             <p className="type-body mt-5 max-w-[420px]">{t("contactPage.mapLead")}</p>
-            <p className="mt-6 max-w-[360px] text-[15px] leading-[1.6] text-ink sm:text-base">
-              {contact.address}
-            </p>
             <a
               href={directionsHref}
               target="_blank"
