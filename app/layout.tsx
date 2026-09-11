@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Manrope } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { LanguageProvider } from "@/components/i18n/LanguageProvider";
 import { getLocale } from "@/lib/i18n/locale";
 import { createT } from "@/lib/i18n/t";
@@ -58,6 +59,7 @@ export default async function RootLayout({
             {children}
           </main>
           <Footer />
+          <WhatsAppFloat />
         </LanguageProvider>
       </body>
     </html>

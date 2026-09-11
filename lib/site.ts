@@ -58,3 +58,8 @@ export const whatsapp = {
   display: "0 (539) 931 44 44",
   href: "https://wa.me/905399314444",
 } as const;
+
+export function getWhatsAppChatHref(message?: string) {
+  if (!message) return whatsapp.href;
+  return `${whatsapp.href}?text=${encodeURIComponent(message)}`;
+}

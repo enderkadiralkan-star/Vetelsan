@@ -44,6 +44,8 @@ const tr = {
     collapseSection: "{name} alt sayfalarını kapat",
     whatsapp: "WhatsApp",
     whatsappWrite: "WhatsApp’tan yazın",
+    whatsappPrefill:
+      "Merhaba, ürün ve tedarik hakkında bilgi almak istiyorum.",
   },
   common: {
     contactCta: "Bize Ulaşın",
@@ -403,6 +405,8 @@ const en: { [K in keyof typeof tr]: { [P in keyof (typeof tr)[K]]: string } } = 
     collapseSection: "Close {name} subpages",
     whatsapp: "WhatsApp",
     whatsappWrite: "Message on WhatsApp",
+    whatsappPrefill:
+      "Hello, I would like information about products and supply.",
   },
   common: {
     contactCta: "Contact Us",

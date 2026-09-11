@@ -7,10 +7,8 @@ import { LanguageSwitcher } from "./LanguageSwitcher";
 import { Logo } from "./Logo";
 import { MobileMenu } from "./MobileMenu";
 import { Container } from "./Container";
-import { WhatsAppIcon } from "./WhatsAppIcon";
 import { useI18n } from "@/components/i18n/LanguageProvider";
 import { navItems } from "@/lib/i18n/content";
-import { whatsapp } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 function isActive(pathname: string, href: string) {
@@ -88,18 +86,6 @@ export function Header() {
           )}
         >
           <LanguageSwitcher tone={overlay ? "onDark" : "default"} />
-          <a
-            href={whatsapp.href}
-            target="_blank"
-            rel="noreferrer"
-            aria-label={t("nav.whatsapp")}
-            className={cn(
-              "inline-flex size-11 items-center justify-center transition-colors duration-200",
-              overlay ? "text-white hover:text-white" : "text-ink hover:text-primary",
-            )}
-          >
-            <WhatsAppIcon className="size-5" />
-          </a>
         </div>
         <div
           className={cn(

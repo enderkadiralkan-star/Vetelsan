@@ -5,14 +5,12 @@ import { createPortal } from "react-dom";
 import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { LanguageSwitcher } from "./LanguageSwitcher";
-import { WhatsAppIcon } from "./WhatsAppIcon";
 import { useI18n } from "@/components/i18n/LanguageProvider";
 import {
   localizeCategories,
   localizeMedicineCategories,
   navItems,
 } from "@/lib/i18n/content";
-import { whatsapp } from "@/lib/site";
 import { cn, padIndex } from "@/lib/utils";
 
 type MobileMenuProps = {
@@ -161,7 +159,7 @@ export function MobileMenu({ open, onClose, pathname }: MobileMenuProps) {
             </div>
 
             <nav
-              className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-6 py-6 md:px-8 md:py-8"
+              className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-6 py-6 pb-[max(1.5rem,env(safe-area-inset-bottom))] md:px-8 md:py-8"
               aria-label={t("nav.mobileMenu")}
             >
               <ul className="flex flex-col">
@@ -281,25 +279,6 @@ export function MobileMenu({ open, onClose, pathname }: MobileMenuProps) {
                 })}
               </ul>
             </nav>
-
-            <div className="shrink-0 border-t border-line px-6 pb-[max(1.25rem,env(safe-area-inset-bottom))] pt-5 md:px-8">
-              <a
-                href={whatsapp.href}
-                target="_blank"
-                rel="noreferrer"
-                className="group flex min-h-12 items-center gap-3 text-ink transition-colors duration-200 hover:text-primary"
-              >
-                <WhatsAppIcon className="size-5 shrink-0" />
-                <span className="min-w-0">
-                  <span className="block text-[13px] font-medium tracking-[-0.02em]">
-                    {t("nav.whatsappWrite")}
-                  </span>
-                  <span className="mt-0.5 block text-[13px] text-muted group-hover:text-primary/70">
-                    {whatsapp.display}
-                  </span>
-                </span>
-              </a>
-            </div>
           </motion.div>
         </motion.div>
       ) : null}
